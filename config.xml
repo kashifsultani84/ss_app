@@ -37,7 +37,9 @@
     <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
     <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
-    <!--
+    <preference name="SplashScreen"                value="screen" />
+	<preference name="SplashScreenDelay"                value="10000" />
+	<!--
         Define a specific version of PhoneGap to build into your app.
         <preference name="phonegap-version"       value="3.5.0" />
     -->
@@ -46,23 +48,23 @@
 
     <!-- Core plugins -->
     <plugin name="cordova-plugin-battery-status" />
-    <plugin name="cordova-plugin-camera" />
+    <!-- <plugin name="cordova-plugin-camera" /> 
     <plugin name="cordova-plugin-media-capture" />
     <plugin name="cordova-plugin-console" />
-    <plugin name="cordova-plugin-contacts" />
+    <plugin name="cordova-plugin-contacts" /> -->
     <plugin name="cordova-plugin-device" />
     <plugin name="cordova-plugin-device-motion" />
     <plugin name="cordova-plugin-device-orientation" />
-    <plugin name="cordova-plugin-dialogs" />
+    <!-- <plugin name="cordova-plugin-dialogs" />
     <plugin name="cordova-plugin-file" />
     <plugin name="cordova-plugin-file-transfer" />
     <plugin name="cordova-plugin-geolocation" />
     <plugin name="cordova-plugin-globalization" />
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-media" />
-    <plugin name="cordova-plugin-network-information" />
+    <plugin name="cordova-plugin-network-information" /> -->
     <plugin name="cordova-plugin-splashscreen" />
-    <plugin name="cordova-plugin-vibration" />
+    <!-- <plugin name="cordova-plugin-vibration" /> -->
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
@@ -90,7 +92,7 @@
     <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="img/android/splash_screen/launhing-bg-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="img/android/splash_screen/launhing-bg-mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
     <gap:splash src="img/android/splash_screen/launhing-bg-mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
     <gap:splash src="img/android/splash_screen/launhing-bg-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
     <gap:splash src="img/android/splash_screen/launhing-bg-xdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
