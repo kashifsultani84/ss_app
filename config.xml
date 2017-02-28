@@ -90,7 +90,7 @@
     <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="img/android/splash_screen/launhing-bg-mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="img/android/splash_screen/launhing-bg-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
     <gap:splash src="img/android/splash_screen/launhing-bg-mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
     <gap:splash src="img/android/splash_screen/launhing-bg-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
     <gap:splash src="img/android/splash_screen/launhing-bg-xdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
