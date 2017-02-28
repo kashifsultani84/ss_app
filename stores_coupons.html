@@ -1,0 +1,51 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
+
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+            </a>
+        </div>
+        <div class="center sliding" id="store_heading">Stores Coupons</div>
+        <div class="right">
+            <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+        </div>
+		
+    </div>
+</div>
+<div class="pages">
+    <div data-page="stores_coupons" class="page">
+		<div class="subnavbar">
+			<div class="buttons-row"><a href="index.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="stores.html" class="button">Stores</a><a href="categories.html" class="button">Categories</a><a href="today_coupons.html" class="button">Today's Coupon</a></div>
+		</div>
+        <div class="page-content">
+			<div class="content-block">
+				<form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                     <div class="searchbar-input">
+                        <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+                     </div>
+                     <a href="#" class="searchbar-cancel">Cancel</a>
+				</form>
+				
+				<div class="content-block searchbar-not-found">
+                     <div class="content-block-inner">Store Not Found...</div>
+                </div>
+				<div class="list-block list-block-search searchbar-found">
+					<ul id="store_coupons_list">
+					   <li class="item-content">
+						  <div class="item-inner">
+							 <div class="item-title"><!--<img src="img/loader.gif">-->
+								<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+								<span class="sr-only">Loading...</span>
+							 </div>
+						  </div>
+					   </li>
+					</ul>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
