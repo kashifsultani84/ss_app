@@ -97,10 +97,13 @@
     <gap:splash src="img/android/splash_screen/launhing-bg-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
     <gap:splash src="img/android/splash_screen/launhing-bg-xdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
 	-->
+	<splash src="/img/android/splash_screen/launhing-bg-mdpi-portrait.png" />
+	<!--
 	<splash src="img/android/splash_screen/launhing-bg-mdpi-portrait.png" platform="android" qualifier="ldpi" />
 	<splash src="img/android/splash_screen/launhing-bg-mdpi-portrait.png" platform="android" qualifier="mdpi" />
 	<splash src="img/android/splash_screen/launhing-bg-hdpi-portrait.png" platform="android" qualifier="hdpi" />
 	<splash src="img/android/splash_screen/launhing-bg-xdpi-portrait.png" platform="android" qualifier="xhdpi" />
+	-->
 	
     <gap:splash src="res/screen/blackberry/screen-225.png"              gap:platform="blackberry" />
     <gap:splash src="res/screen/ios/screen-iphone-portrait.png"         gap:platform="ios"     width="320" height="480" />
