@@ -45,6 +45,31 @@ $$(document).on('pageInit', function (e) {
    // Get page data from event data
     var page = e.detail.page;
 
+	if (page.name === 'stores') {
+	
+        $.ajax({
+			url: 'http://www.shoppingspout.us/api/featured-brands2.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					//alert(result[0].store_id)
+					//alert(result.length);
+					var data = '';
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						 if(key == 'brand_id')
+							data += "<div class='col-25 feat-app'><a href='stores_coupons.html?store_id="+ result[i].store_id+ "'><img src='" + result[i].brand_image +"'></a></div>"
+					   });
+					}
+					
+					$('#featured_brands_list').html(data);
+				},
+			error: function (request, error) {
+					alert('Error ' + error);
+				}
+		});
+    }
 	
     if (page.name === 'stores') {
 	
