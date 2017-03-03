@@ -34,3 +34,18 @@
 .page-content {
     padding-top: 55px;
 }
+
+/* new css 3-3-2017 */
+.stores-block{
+	width:100%;
+	height:auto;
+}
+.feat-app{
+		width:300px;
+		height:auto;
+		float:left;
+		margin-top:15px;
+}
+.feat-app img{
+	max-width: 100%;
+}

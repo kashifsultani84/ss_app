@@ -16,15 +16,38 @@ var mainView = myApp.addView('.view-main', {
 //$$('.view').addClass('theme-blue');
 //$$('.view').addClass('theme-green');
 
-
+$.ajax({
+	url: 'http://www.shoppingspout.us/api/featured-brands2.php',
+	type: 'GET',
+	dataType: 'json',
+	success: function (result) {
+			//alert(result[0].store_id)
+			//alert(result.length);
+			var data = '';
+			for (var i=0 ; i <= (result.length-1); i++) {
+			   
+			   $.each( result[i], function( key, value ) {
+				 if(key == 'brand_id')
+					data += "<div class='col-25 feat-app'><a href='stores_coupons.html?store_id="+ result[i].store_id+ "'><img src='" + result[i].brand_image +"'></a></div>"
+			   });
+			}
+			
+			$('#featured_brands_list').html(data);
+		},
+	error: function (request, error) {
+			alert('Error ' + error);
+		}
+});
 
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('pageInit', function (e) {
-    // Get page data from event data
+
+   // Get page data from event data
     var page = e.detail.page;
 
 	
     if (page.name === 'stores') {
+	
         //jQuery.noConflict();
 		$.ajax({
 			url: 'http://www.shoppingspout.us/api/all-stores2.php',
@@ -137,4 +160,84 @@ $$(document).on('pageInit', function (e) {
 				}
 			});
     }
+	
 })
+
+
+
+
+
+
+
+	  
+function search()
+{
+	var value = document.getElementById('test').value;
+	$.ajax({
+			url: 'http://www.shoppingspout.us/api/search-stores2.php?search_term='+value,
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					//alert(result[0].store_id)
+					//alert(result.length);
+					var data = '';
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						 if(key == 'store_name')
+							data += " <a href='stores_coupons.html?store_id="+ result[i].store_id+ "'>" + result[i].store_name +"</a>";
+									  
+ 
+					   });
+					}
+					alert(data);
+					//$('#store_list').html(data);
+				},
+			error: function (request, error) {
+					alert('Error ' + error);
+				}
+			});
+}
+
+
+
+var autocompleteDropdownAjax = myApp.autocomplete({
+    input: '#autocomplete-dropdown-ajax',
+    openIn: 'dropdown',
+    preloader: true, //enable preloader
+    valueProperty: 'id', //object's "value" property name
+    textProperty: 'name', //object's "text" property name
+    limit: 20, //limit to 20 results
+    dropdownPlaceholderText: '',
+    expandInput: true, // expand input
+    source: function (autocomplete, query, render) {
+        var results = [];
+        if (query.length === 0) {
+            render(results);
+            return;
+        }
+        // Show Preloader
+        autocomplete.showPreloader();
+        // Do Ajax request to Autocomplete data
+        $$.ajax({
+            url: 'http://www.shoppingspout.us/api/search-stores2.php',
+            method: 'GET',
+            dataType: 'json',
+            //send "query" to server. Useful in case you generate response dynamically
+            data: {
+                query: query
+            },
+            success: function (data) {
+                // Find matched items
+                for (var i = 0; i < data.length; i++) {
+                    //alert(data[i].store_name);
+					if (data[i].store_name.toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(data[i]);
+                }
+                // Hide Preoloader
+                autocomplete.hidePreloader();
+                // Render items by passing array with result items
+                render(results);
+            }
+        });
+    }
+});
