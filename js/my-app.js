@@ -45,7 +45,7 @@ $$(document).on('pageInit', function (e) {
    // Get page data from event data
     var page = e.detail.page;
 
-	if (page.name === 'stores') {
+	if (page.name === 'index') {
 	
         $.ajax({
 			url: 'http://www.shoppingspout.us/api/featured-brands2.php',
