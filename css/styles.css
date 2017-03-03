@@ -54,3 +54,16 @@
 .feat-app img{
 	max-width: 100%;
 }
+
+.half{
+	height: auto;
+	background: #fff;
+	font-size:35px;
+	text-align:center;
+	line-height:200px;
+	padding:10px;
+}
+.half img{
+	width:100%;
+	display:block;
+}

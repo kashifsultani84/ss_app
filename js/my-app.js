@@ -29,7 +29,7 @@ $.ajax({
 				   
 				   $.each( result[i], function( key, value ) {
 					 if(key == 'std')
-						data += "<div class='col-50'><a href='"+ result[i].store_url+ "'><img src='" + result[i].store_image +"'></a></div>";
+						data += "<div class='col-50 half'><a href='"+ result[i].store_url+ "'><img src='" + result[i].store_image +"'></a></div>";
 				   });
 				}
 				
