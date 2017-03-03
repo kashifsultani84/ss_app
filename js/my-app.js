@@ -16,6 +16,31 @@ var mainView = myApp.addView('.view-main', {
 //$$('.view').addClass('theme-blue');
 //$$('.view').addClass('theme-green');
 
+//getting top store banners
+$.ajax({
+		url: 'http://www.shoppingspout.us/api/featured-stores2.php',
+		type: 'GET',
+		dataType: 'json',
+		success: function (result) {
+				//alert(result[0].store_id)
+				//alert(result.length);
+				var data = '';
+				for (var i=0 ; i <= (result.length-1); i++) {
+				   
+				   $.each( result[i], function( key, value ) {
+					 if(key == 'std')
+						data += "<div class='col-50'><a href='"+ result[i].store_url+ "'><img src='" + result[i].store_image +"'></a></div>";
+				   });
+				}
+				
+				$('#featured_stores_list').html(data);
+			},
+		error: function (request, error) {
+				alert('Error ' + error);
+			}
+	});
+
+//getting top brands	
 $.ajax({
 	url: 'http://www.shoppingspout.us/api/featured-brands2.php',
 	type: 'GET',
@@ -28,7 +53,7 @@ $.ajax({
 			   
 			   $.each( result[i], function( key, value ) {
 				 if(key == 'brand_id')
-					data += "<div class='col-25 feat-app'><a href='stores_coupons.html?store_id="+ result[i].store_id+ "'><img src='" + result[i].brand_image +"'></a></div>"
+					data += "<div class='col-25 feat-app'><a href='stores_coupons.html?store_id="+ result[i].store_id+ "'><img src='" + result[i].brand_image +"'></a></div>";
 			   });
 			}
 			
@@ -39,6 +64,9 @@ $.ajax({
 		}
 });
 
+
+
+
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('pageInit', function (e) {
 
@@ -48,6 +76,29 @@ $$(document).on('pageInit', function (e) {
 	if (page.name === 'index') {
 	
         $.ajax({
+			url: 'http://www.shoppingspout.us/api/featured-stores2.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					//alert(result[0].store_id)
+					//alert(result.length);
+					var data = '';
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						 if(key == 'std')
+							data += "<div class='col-50'><a href='"+ result[i].store_url+ "' target='_blank'><img src='" + result[i].store_image +"'></a></div>"
+					   });
+					}
+					
+					$('#featured_stores_list').html(data);
+				},
+			error: function (request, error) {
+					alert('Error ' + error);
+				}
+		});
+		
+		$.ajax({
 			url: 'http://www.shoppingspout.us/api/featured-brands2.php',
 			type: 'GET',
 			dataType: 'json',
@@ -69,6 +120,8 @@ $$(document).on('pageInit', function (e) {
 					alert('Error ' + error);
 				}
 		});
+		
+		
     }
 	
     if (page.name === 'stores') {
