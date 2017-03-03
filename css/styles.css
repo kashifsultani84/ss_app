@@ -41,11 +41,16 @@
 	height:auto;
 }
 .feat-app{
-		width:300px;
-		height:auto;
-		float:left;
-		margin-top:15px;
+	width:300px;
+	height:auto;
+	float:left;
+	margin-top:0px;
+	border:1px solid #ccc;
+	padding:5px;
+	line-height:10px;
+	margin-bottom:15px;
 }
+
 .feat-app img{
 	max-width: 100%;
 }
