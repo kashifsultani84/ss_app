@@ -28,8 +28,10 @@ $.ajax({
 				for (var i=0 ; i <= (result.length-1); i++) {
 				   
 				   $.each( result[i], function( key, value ) {
-					 if(key == 'std')
-						data += "<div class='col-50 half'><a href='"+ result[i].store_url+ "'><img src='" + result[i].store_image +"'></a></div>";
+					 if(key == 'std'){
+					    data += "<div class='col-50 half'><a href='#' onclick=\"window.open('"+ result[i].store_url+"', '_system', 'location=yes'); return false;\"><img src='" + result[i].store_image +"'></a></div>";
+						
+					 }	
 				   });
 				}
 				
