@@ -10,6 +10,11 @@
    See https://github.com/apache/cordova-plugin-statusbar
 */
 
+h1, h2, h3, h4, h5, h6{
+		margin:0;
+		padding:0;
+}
+
 .statusbar-overlay {
     background: #000000;
 }
@@ -71,4 +76,59 @@
 .no-margin{
 	margin : 0px !important;
 	padding: 0px !important;
+}
+
+
+.store-name{
+	float:left;
+}
+.store-name h4{
+		font-size:24px;
+}
+.store-logo{
+	float:right;
+}
+.store-logo img{
+	display:block;
+	margin:33px auto;
+}
+.stores-content{
+	height:auto;
+	background:#fff;
+	border-radius:5px;
+	padding-bottom:10px;
+	margin-top: 10px;
+}
+ul#store_list li{
+	list-style-type:none;
+	text-decoration: none;
+}
+.stores-star-save h6{
+	font-size:24px;
+	text-transform: uppercase;
+}
+.stores-star-save{
+	margin-top:30px;
+}
+a.headings{
+    font-size: 22px;
+    text-align: left;
+    line-height: 20px;
+}
+.full-content-store h6{
+	font-size: 24px;
+	padding:0px 2px 0px 45px;
+}
+.full-content-store p{
+	font-size: 16px;
+	padding:0px 2px 0px 45px;
+}
+.success{
+	float:left;
+	padding:0px 2px 0px 45px;
+	
+}
+.expire{
+	float:right;
+	text-align:right;
 }

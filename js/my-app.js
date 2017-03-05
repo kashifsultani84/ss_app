@@ -196,16 +196,55 @@ $$(document).on('pageInit', function (e) {
 			success: function (result) {
 					
 					var data = '';
+					var store_heading ='';
+					var store_logo_main= '';
+					var store_heading_main = '';
+					
 					for (var i=0 ; i <= (result.length-1); i++) {
 					   
 					   $.each( result[i], function( key, value ) {
 						  //data  += 	key + '  =  ' + value;
 						 if(key == 'coupon_id')
-							data += " <li class='item-content'><div class='item-media'><i class='icon icon-form-name'></i></div><div class='item-inner'><div class='item-title'><i class='fa fa-tags' style='font-size:20px;color:#007aff;'></i> <a href='"+ result[i].coupon_id+ "'>" + result[i].coupon_title +"</a></div></div></li>";
+							data += '<div class="row stores-content">'
+									+ '<div class="col-80 heading-stores-content">'
+									+ '<ul id="store_list">'
+									+		'<li class="item-content">'
+									+			'<div class="item-inner"><div class="item-title">' 
+									+			'<a href="coupon-detail.html?coupon_id=' + result[i].coupon_id +'" class="headings">' + result[i].coupon_title +'</a></div></div>'
+									+		'</li>'
+									+ '</ul>'
+									+ '<hr />'
+									+ '</div>'
+									+ '<!--end div-->'
+									+ '<div class="col-20 stores-star-save">'
+									+		'<span><h6>save</h6><div class="item-media"><i class="f7-icons size-22"></i></i></div></span>'
+									+ '</div>'
+									+ '<!--end stat save-->'
+									+ '<div class="row">'
+									+	'<div class="col-100 full-content-store">'
+									+		'<h6>' + result[i].store_name +'</h6>'
+									+		'<p>' + result[i].coupon_description +'</p>'
+									+	'</div>'
+									+	'<div class="col-2ds0 success">'
+									+		'<p>' + result[i].success_ration +'%Success</p>'
+									+	'</div>'
+									+	'<div class="col-60 expire">'
+									+		'<p>Expire: ' + result[i].coupon_expiry_date +'</p>'
+									+	'</div>'
+									+ '</div>'
+									+ '</div>';
+									
+							store_heading = result[i].store_name;
+							store_heading_main = result[i].store_name + ' Coupons and Offers';
+							store_logo_main = '<img src="'+ result[i].store_logo +'" width="50%" height="50%"/>';		
 					   });
 					}
 					//alert(data);
-					$('#store_coupons_list').html(data);
+					
+					$('#store_coupons_list1').html(data);
+					$('#store_name_heading').html(store_heading);
+					$('#store_heading_main').html(store_heading_main);
+					$('#store_logo_div').html(store_logo_main);
 				},
 			error: function (request, error) {
 					alert('Error ' + error);
