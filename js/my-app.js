@@ -89,7 +89,7 @@ $$(document).on('pageInit', function (e) {
 					   
 					   $.each( result[i], function( key, value ) {
 						 if(key == 'std')
-							data += "<div class='col-50'><a href='"+ result[i].store_url+ "' target='_blank'><img src='" + result[i].store_image +"'></a></div>"
+							data += "<div class='col-50 half'><a href='#' onclick=\"window.open('"+ result[i].store_url+"', '_system', 'location=yes'); return false;\"><img src='" + result[i].store_image +"'></a></div>";
 					   });
 					}
 					
