@@ -185,10 +185,6 @@ a.headings{
 	text-align: center;
 }
 
-.content-block {
-	margin: 25px 0 !important;
-}
-
 @media only screen and (max-width: 900px){
 .success{
 	width:20%;
