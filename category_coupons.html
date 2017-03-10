@@ -9,7 +9,7 @@
                 <span>Back</span>
             </a>
         </div>
-        <div class="center sliding" id="store_heading">Category Coupons</div>
+        <div class="center sliding" id="store_heading_main">Stores Coupons</div>
         <div class="right">
             <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
         </div>
@@ -23,28 +23,21 @@
 		</div>
         <div class="page-content" style="padding-top: 55px;">
 			<div class="content-block">
-				<form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
-                     <div class="searchbar-input">
-                        <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
-                     </div>
-                     <a href="#" class="searchbar-cancel">Cancel</a>
-				</form>
 				
-				<div class="content-block searchbar-not-found">
-                     <div class="content-block-inner">Store Not Found...</div>
-                </div>
-				<div class="list-block list-block-search searchbar-found">
-					<ul id="category_coupons_list">
-					   <li class="item-content">
-						  <div class="item-inner">
-							 <div class="item-title"><!--<img src="img/loader.gif">-->
-								<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-								<span class="sr-only">Loading...</span>
-							 </div>
-						  </div>
-					   </li>
-					</ul>
+				<div class="row">
+					<div class="col-100">
+						<div class="col-80 store-name">
+							<h4 id="store_name_heading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></h4>
+						</div>
+						<div class="col-20 store-logo" id="store_logo_div">
+							Store Logo
+						</div>
+					</div>
 				</div>
+				<!-- end row -->
+				<div class="row stores-content" id="store_coupons_list1">
+				
+				</div>	
             </div>
         </div>
     </div>
