@@ -9,7 +9,7 @@
                 <span>Back</span>
             </a>
         </div>
-        <div class="center sliding">Today's Coupons</div>
+        <div class="center sliding" id="heading_main"><img src="img/app-logo.png" width="200px"/></div>
         <div class="right">
             <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
         </div>
@@ -18,13 +18,26 @@
 </div>
 <div class="pages">
     <div data-page="today_coupons" class="page">
-        <div class="page-content">
-			<div class="subnavbar">
-			   <div class="buttons-row"><a href="index.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="stores.html" class="button">Stores</a><a href="categories.html" class="button">Categories</a><a href="today_coupons.html" class="button active">Today's Coupon</a></div>
-			</div>
-            <div class="content-block">
-                <p>Here is About page!</p>
-                <p>Fusce eros lectus, accumsan eget mi vel, iaculis tincidunt felis. Nulla tincidunt pharetra sagittis. Fusce in felis eros. Nulla sit amet aliquam lorem, et gravida ipsum. Mauris consectetur nisl non sollicitudin tristique. Praesent vitae metus ac quam rhoncus mattis vel et nisi. Aenean aliquet, felis quis dignissim iaculis, lectus quam tincidunt ligula, et venenatis turpis risus sed lorem. Morbi eu metus elit. Ut vel diam dolor.</p>
+		<div class="subnavbar">
+			<div class="buttons-row"><a href="index.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="today_coupons.html" class="button active">New Coupons</a><a href="stores.html" class="button">Top Stores</a><a href="categories.html" class="button">Categories</a></div>
+		</div>
+        <div class="page-content" style="padding-top: 55px;">
+			<div class="content-block">
+				
+				<div class="row">
+					<div class="col-100">
+						<div class="col-80 store-name">
+							<h4 id="category_heading">New Coupons</h4>
+						</div>
+						<div class="col-20 store-logo" id="category_logo_div">
+							
+						</div>
+					</div>
+				</div>
+				<!-- end row -->
+				<div class="row stores-content" id="category_coupons_list1">
+				
+				</div>	
             </div>
         </div>
     </div>

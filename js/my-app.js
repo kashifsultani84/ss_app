@@ -249,7 +249,7 @@ $$(document).on('pageInit', function (e) {
 					
 					$('#store_coupons_list1').html(data);
 					$('#store_name_heading').html(store_heading);
-					$('#store_heading_main').html(store_heading_main);
+					//$('#store_heading_main').html(store_heading_main);
 					$('#store_logo_div').html(store_logo_main);
 				},
 			error: function (request, error) {
@@ -264,16 +264,43 @@ $$(document).on('pageInit', function (e) {
 		var category_id = page.query.category_id;
 		
 		$.ajax({
+			url: 'http://www.shoppingspout.us/api/category-info2.php?category_id=' + category_id,
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					
+					var category_heading ='';
+					var category_logo_main= '';
+					var category_heading_main = '';
+					
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						    category_heading = result[i].category_name;
+							category_heading_main = 'Coupons & Offers';
+							//category_logo_main = '<img src="'+ result[i].store_logo +'" width="100%" height="100%"/>';		
+					   });
+					}
+					//alert(data);
+					
+					$('#category_heading').html(category_heading);
+					//$('#category_heading_main').html(category_heading_main);
+					//$('#category_logo_div').html(category_logo_main);
+				},
+			error: function (request, error) {
+					alert('Error ' + error);
+				}
+			});
+			
+			
+		$.ajax({
 			url: 'http://www.shoppingspout.us/api/category-coupons2.php?category_id=' + category_id,
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
 					
 					var data = '';
-					var store_heading ='';
-					var store_logo_main= '';
-					var store_heading_main = '';
-					
+
 					var end_date = '';
 					var success_ration = '';
 					
@@ -314,17 +341,74 @@ $$(document).on('pageInit', function (e) {
 									+	'</div>'
 									+	'<!--end main-store-content no-gutter -->';
 									
-							store_heading = result[i].store_name;
-							store_heading_main = result[i].store_name + ' Coupons & Offers';
-							store_logo_main = '<img src="'+ result[i].store_logo +'" width="100%" height="100%"/>';		
 					   });
 					}
 					//alert(data);
 					
-					$('#store_coupons_list1').html(data);
-					$('#store_name_heading').html(store_heading);
-					$('#store_heading_main').html(store_heading_main);
-					$('#store_logo_div').html(store_logo_main);
+					$('#category_coupons_list1').html(data);
+				},
+			error: function (request, error) {
+					alert('Error ' + error);
+				}
+			});	
+    }
+	
+	if (page.name === 'today_coupons') {
+		
+
+		$.ajax({
+			url: 'http://www.shoppingspout.us/api/today-coupons2.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					
+					var data = '';
+					
+					var end_date = '';
+					var success_ration = '';
+					
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						  //data  += 	key + '  =  ' + value;
+						  if(result[i].coupon_expiry_date != null)
+							end_date = 'Expiry: '+ result[i].coupon_expiry_date;
+						 
+						  if(result[i].success_ration != undefined)
+							success_ration = result[i].success_ration;	
+						  else	
+							success_ration = '0';
+							
+						 if(key == 'coupon_id')
+							data 	+= 	'<div class="row main-store-content no-gutter">'
+									+		'<div class="inner-row-main-store-content">'
+									+				'<div class="col-8 stores-heading">'
+									+					'<h2 class="no-margin"><a href="coupon-detail.html?coupon_id=' + result[i].coupon_id +'">' + result[i].coupon_title +'</a></h2>'
+									+				'</div>'
+									+				'<!-- <div class="col-20 save">'
+									+					'<h2 class="no-margin">SAVE</h2>'
+									+						'<i class="fa fa-star" id="star-icon"></i>'
+									+				'</div>-->'
+									+		'</div>'
+									+		'<!--end inner-row-main-store-content -->'
+									+		'<div class="col-100 store-content no-margin">'
+									+			'<h3>' + result[i].store_name +'</h3>'
+									+			'<p>' + result[i].coupon_description +'</p>'
+									+		'</div>'
+									+		'<div class="col-30 success no-margin">'
+									+			'<h5>' + success_ration +'% Success</h5>'
+									+		'</div>'
+									+		'<div class="col-60 Expiry-date no-margin">'
+									+			'<h5>' + end_date +'</h5>'
+									+		'</div>'
+									+	'</div>'
+									+	'<!--end main-store-content no-gutter -->';
+									
+					   });
+					}
+					//alert(data);
+					
+					$('#category_coupons_list1').html(data);
 				},
 			error: function (request, error) {
 					alert('Error ' + error);
