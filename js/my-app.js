@@ -241,8 +241,8 @@ $$(document).on('pageInit', function (e) {
 									+	'<!--end main-store-content no-gutter -->';
 									
 							store_heading = result[i].store_name;
-							store_heading_main = result[i].store_name + ' Coupons and Offers';
-							store_logo_main = '<img src="'+ result[i].store_logo +'" width="50%" height="50%"/>';		
+							store_heading_main = result[i].store_name + ' Coupons & Offers';
+							store_logo_main = '<img src="'+ result[i].store_logo +'" width="100%" height="100%"/>';		
 					   });
 					}
 					//alert(data);
