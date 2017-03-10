@@ -92,13 +92,12 @@ h1, h2, h3, h4, h5, h6{
 	display:block;
 	margin:33px auto;
 }
-.store-content h3{
-	padding:10px !important;
-	font-size:18px;
-}
-.store-content p{
-	padding:0px 12px !important;
-	margin: 0px 3px 25px -1px;
+.stores-content{
+	height:auto;
+	background:#fff;
+	border-radius:5px;
+	padding-bottom:10px;
+	margin-top: 10px;
 }
 ul#store_list li{
 	list-style-type:none;
@@ -133,81 +132,9 @@ a.headings{
 	float:right;
 	text-align:right;
 }
-.main-store-content{
-	background: #fff;
-	border-radius:5px;
-	margin-bottom:20px;
-	padding-bottom:20px;
-	border:1px solid #989797;
+
+
+/*************/
+.content-block {
+    margin: 30px 0;
 }
-.inner-row-main-store-content{
-	width:100%;
-	height:auto;
-	display:block;
-    border-radius: 5px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-	border-bottom:1px solid #ccc;
-}
-.stores-heading{
-	float:left;
-}
-.stores-heading h2{
-	font-size:16px;
-	padding:10px !important;
-}
-.save{
-	float:right;
-}
-.save i#star-icon{
-	text-align:center;
-	width:100%;
-	font-size: 18px;
-	color: #ed1515;
-}
-
-.success h5{
-	font-size:12px;
-	padding: 10px !important;
-}
-.Expiry-date{
-	float:right;
-}
-.Expiry-date h5{
-	font-size:12px;
-	margin:10px 0;
-}
-.stores-heading h2{
-	color: #007aff !important;
-}
-.save h2{
-	font-size: 16px;
-	text-align: center;
-}
-
-@media only screen and (max-width: 900px){
-.success{
-	width:20%;
-}
-.Expiry-date{
-	width:80%;
-}
-}
-	
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

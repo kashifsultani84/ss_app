@@ -200,39 +200,45 @@ $$(document).on('pageInit', function (e) {
 					var store_logo_main= '';
 					var store_heading_main = '';
 					
+					var end_date = '';
+					var success_ration = '';
+					
 					for (var i=0 ; i <= (result.length-1); i++) {
 					   
 					   $.each( result[i], function( key, value ) {
 						  //data  += 	key + '  =  ' + value;
+						  if(result[i].coupon_expiry_date != null)
+							end_date = 'Expiry: '+ result[i].coupon_expiry_date;
+						 
+						  if(result[i].success_ration != undefined)
+							success_ration = result[i].success_ration;	
+						  else	
+							success_ration = '0';
+							
 						 if(key == 'coupon_id')
-							data += '<div class="row stores-content">'
-									+ '<div class="col-80 heading-stores-content">'
-									+ '<ul id="store_list">'
-									+		'<li class="item-content">'
-									+			'<div class="item-inner"><div class="item-title">' 
-									+			'<a href="coupon-detail.html?coupon_id=' + result[i].coupon_id +'" class="headings">' + result[i].coupon_title +'</a></div></div>'
-									+		'</li>'
-									+ '</ul>'
-									+ '<hr />'
-									+ '</div>'
-									+ '<!--end div-->'
-									+ '<div class="col-20 stores-star-save">'
-									+		'<span><h6>save</h6><div class="item-media"><i class="f7-icons size-22"></i></i></div></span>'
-									+ '</div>'
-									+ '<!--end stat save-->'
-									+ '<div class="row">'
-									+	'<div class="col-100 full-content-store">'
-									+		'<h6>' + result[i].store_name +'</h6>'
-									+		'<p>' + result[i].coupon_description +'</p>'
+							data 	+= 	'<div class="row main-store-content no-gutter">'
+									+		'<div class="inner-row-main-store-content">'
+									+				'<div class="col-50 stores-heading">'
+									+					'<h2 class="no-margin"><a href="coupon-detail.html?coupon_id=' + result[i].coupon_id +'">' + result[i].coupon_title +'</a></h2>'
+									+				'</div>'
+									+				'<div class="col-20 save">'
+									+					'<h2 class="no-margin">SAVE</h2>'
+									+						'<i class="fa fa-star" id="star-icon"></i>'
+									+				'</div>'
+									+		'</div>'
+									+		'<!--end inner-row-main-store-content -->'
+									+		'<div class="col-100 store-content no-margin">'
+									+			'<h3>' + result[i].store_name +'</h3>'
+									+			'<p>' + result[i].coupon_description +'</p>'
+									+		'</div>'
+									+		'<div class="col-30 success no-margin">'
+									+			'<h5>' + success_ration +'% Success</h5>'
+									+		'</div>'
+									+		'<div class="col-60 Expiry-date no-margin">'
+									+			'<h5>' + end_date +'</h5>'
+									+		'</div>'
 									+	'</div>'
-									+	'<div class="col-2ds0 success">'
-									+		'<p>' + result[i].success_ration +'%Success</p>'
-									+	'</div>'
-									+	'<div class="col-60 expire">'
-									+		'<p>Expire: ' + result[i].coupon_expiry_date +'</p>'
-									+	'</div>'
-									+ '</div>'
-									+ '</div>';
+									+	'<!--end main-store-content no-gutter -->';
 									
 							store_heading = result[i].store_name;
 							store_heading_main = result[i].store_name + ' Coupons and Offers';
