@@ -219,7 +219,7 @@ $$(document).on('pageInit', function (e) {
 							data 	+= 	'<div class="row main-store-content no-gutter">'
 									+		'<div class="inner-row-main-store-content">'
 									+				'<div class="col-8 stores-heading">'
-									+					'<h2 class="no-margin"><a href="coupon-detail.html?coupon_id=' + result[i].coupon_id +'">' + result[i].coupon_title +'</a></h2>'
+									+					'<h2 class="no-margin"><a href="coupon_detail.html?coupon_id=' + result[i].coupon_id +'">' + result[i].coupon_title +'</a></h2>'
 									+				'</div>'
 									+				'<!-- <div class="col-20 save">'
 									+					'<h2 class="no-margin">SAVE</h2>'
@@ -434,6 +434,7 @@ $$(document).on('pageInit', function (e) {
 					var store_heading_main = '';
                     var coupon_title = '';
                     var coupon_description = '';
+                    var coupon_get_code = '';
 					
 					var end_date = '';
 					var success_ration = '';
@@ -447,6 +448,7 @@ $$(document).on('pageInit', function (e) {
 							store_logo_main = '<img src="'+ result[i].store_logo +'" width="50%" height="50%"/>';	
                             coupon_title = result[i].coupon_title;
                             coupon_description = result[i].coupon_description;
+                            coupon_get_code = "<a href='#' onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\" class='button button-big button-fill color-gray'>Get Code</a>"; 
 					   });
 					}
 					//alert(data);
@@ -456,6 +458,7 @@ $$(document).on('pageInit', function (e) {
                     $('#store_logo_div').html(store_logo_main);
 					$('#coupon_title').html(coupon_title);
                     $('#coupon_description').html(coupon_description);
+                    $('#coupon_get_code').html(coupon_get_code);
                     
 				},
 			error: function (request, error) {
