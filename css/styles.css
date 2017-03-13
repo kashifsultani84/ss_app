@@ -210,7 +210,7 @@ a.headings{
 .main-logo-content{
     background: #fff;
     border-radius:5px;
-    margin-bottom:20px;
+    margin-bottom:5px;
     padding-bottom:20px;
     border:1px solid #989797;
 }
@@ -230,7 +230,7 @@ a.headings{
     padding:10px !important;
 }
 .logo-center{
-    height:350px;
+    height:295px;
     background:#86c0ff;
     display:block;
 }
@@ -238,7 +238,7 @@ a.headings{
     display:block;
     margin:0px auto;
     width:16%;
-    padding-top:30px;
+    padding-top:15px;
 }
 .store-logo-img h3{
     text-align:center;
