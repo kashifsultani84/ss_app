@@ -231,7 +231,7 @@ a.headings{
 }
 .logo-center{
     height:350px;
-    background:#b6b6b6;
+    background:#86c0ff;
     display:block;
 }
 .store-logo-img {
@@ -284,8 +284,10 @@ a.headings{
     margin:0px auto;
 }
 .store-logo-img h3{
-    text-align:center;
-    width:100%;
+    text-align: center;
+    width: 100%;
+    color: #312f2f;
+    margin-top: 10px;
 }
 .save-logo-get-code a.button{
     width:100% !important;
