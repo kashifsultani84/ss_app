@@ -443,19 +443,22 @@ $$(document).on('pageInit', function (e) {
 					   
 					   $.each( result[i], function( key, value ) {
 							
-							store_inner_heading = result[i].store_name;
-							store_heading_main = result[i].store_name;
-							store_logo_main = '<img src="'+ result[i].store_logo +'" width="50%" height="50%"/>';	
-                            coupon_title = result[i].coupon_title;
-                            coupon_description = result[i].coupon_description;
-                            coupon_get_code = "<a href='#' onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\" class='button button-big button-fill color-gray'>Get Code</a>"; 
+                            if(key=='store_name')
+                            {
+                                store_inner_heading = result[i].store_name;
+                                store_heading_main = result[i].store_name;
+                                store_logo_main = '<img src="'+ result[i].store_logo +'" width="50%" height="50%"/>';	
+                                coupon_title = result[i].coupon_title;
+                                coupon_description = result[i].coupon_description;
+                                coupon_get_code = "<a href='#' onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\" class='button button-big button-fill color-gray'>Get Code</a>"; 
+                            }
 					   });
 					}
-					//alert(data);
+					//alert(store_logo_main);
 					
-					$('#store_heading_main').html(store_heading_main);
-                    $('#store_inner_heading').html(store_inner_heading);
-                    $('#store_logo_div').html(store_logo_main);
+					$('#store_heading_main2').html(store_heading_main);
+                    $('#store_inner_heading2').html(store_inner_heading);
+                    $('#store_logo_div2').html(store_logo_main);
 					$('#coupon_title').html(coupon_title);
                     $('#coupon_description').html(coupon_description);
                     $('#coupon_get_code').html(coupon_get_code);
