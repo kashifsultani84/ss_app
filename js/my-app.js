@@ -429,9 +429,11 @@ $$(document).on('pageInit', function (e) {
 			success: function (result) {
 					
 					var data = '';
-					var store_heading ='';
+					var store_inner_heading ='';
 					var store_logo_main= '';
 					var store_heading_main = '';
+                    var coupon_title = '';
+                    var coupon_description = '';
 					
 					var end_date = '';
 					var success_ration = '';
@@ -439,51 +441,22 @@ $$(document).on('pageInit', function (e) {
 					for (var i=0 ; i <= (result.length-1); i++) {
 					   
 					   $.each( result[i], function( key, value ) {
-						  //data  += 	key + '  =  ' + value;
-						  if(result[i].coupon_expiry_date != null)
-							end_date = 'Expiry: '+ result[i].coupon_expiry_date;
-						 
-						  if(result[i].success_ration != undefined)
-							success_ration = result[i].success_ration;	
-						  else	
-							success_ration = '0';
 							
-						 if(key == 'coupon_id')
-							data 	+= 	'<div class="row main-store-content no-gutter">'
-									+		'<div class="inner-row-main-store-content">'
-									+				'<div class="col-8 stores-heading">'
-									+					'<h2 class="no-margin"><a href="coupon_detail.html?coupon_id=' + result[i].coupon_id +'">' + result[i].coupon_title +'</a></h2>'
-									+				'</div>'
-									+				'<!-- <div class="col-20 save">'
-									+					'<h2 class="no-margin">SAVE</h2>'
-									+						'<i class="fa fa-star" id="star-icon"></i>'
-									+				'</div>-->'
-									+		'</div>'
-									+		'<!--end inner-row-main-store-content -->'
-									+		'<div class="col-100 store-content no-margin">'
-									+			'<h3>' + result[i].store_name +'</h3>'
-									+			'<p>' + result[i].coupon_description +'</p>'
-									+		'</div>'
-									+		'<div class="col-30 success no-margin">'
-									+			'<h5>' + success_ration +'% Success</h5>'
-									+		'</div>'
-									+		'<div class="col-60 Expiry-date no-margin">'
-									+			'<h5>' + end_date +'</h5>'
-									+		'</div>'
-									+	'</div>'
-									+	'<!--end main-store-content no-gutter -->';
-									
-							store_heading = result[i].store_name;
-							store_heading_main = result[i].store_name + ' Coupons & Offers';
-							store_logo_main = '<img src="'+ result[i].store_logo +'" width="100%" height="100%"/>';		
+							store_inner_heading = result[i].store_name;
+							store_heading_main = result[i].store_name;
+							store_logo_main = '<img src="'+ result[i].store_logo +'" width="100%" height="100%"/>';	
+                            coupon_title = result[i].coupon_title;
+                            coupon_description = result[i].coupon_description;
 					   });
 					}
 					//alert(data);
 					
-					$('#store_coupons_list1').html(data);
-					$('#store_name_heading').html(store_heading);
-					//$('#store_heading_main').html(store_heading_main);
-					$('#store_logo_div').html(store_logo_main);
+					$('#store_heading_main').html(store_heading_main);
+                    $('#store_inner_heading').html(store_inner_heading);
+                    $('#store_logo_div').html(store_logo_main);
+					$('#coupon_title').html(coupon_title);
+                    $('#coupon_description').html(coupon_description);
+                    
 				},
 			error: function (request, error) {
 					alert('Error ' + error);

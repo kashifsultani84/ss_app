@@ -193,3 +193,102 @@ a.headings{
 	width:80%;
 }
 }
+
+
+.save-logo{
+    float:left;
+}
+.save-logo i#star-icon-save-logo {
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+    color: #ed1515;
+    margin-top:15px;
+}
+
+.main-logo-content{
+    background: #fff;
+    border-radius:5px;
+    margin-bottom:20px;
+    padding-bottom:20px;
+    border:1px solid #989797;
+}
+.inner-row-logo-store-content{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius: 5px;
+    padding-bottom: 0px;
+    margin-top: 10px;
+}
+.logo-heading{
+    float:left;
+}
+.logo-heading h2{
+    font-size:24px;
+    padding:10px !important;
+}
+.logo-center{
+    height:350px;
+    background:#b6b6b6;
+    display:block;
+}
+.store-logo-img {
+    display:block;
+    margin:0px auto;
+    width:16%;
+    padding-top:30px;
+}
+.store-logo-img h3{
+    text-align:center;
+    font-size:18px;
+    width:255px;
+
+}
+.save-logo-get-code a.button{
+    height:auto !important;
+    background:#ff0000 !important;
+    line-height:inherit;
+    padding: 9px 0 8px 0;
+    margin-top:15px;
+}
+.logo-code h2{
+    padding:10px !important;
+    font-size:18px;
+}
+.logo-code-heading-conent{
+        border-bottom: 1px solid #ccc;
+}
+.logo-code-heading-conent p{
+    padding:0px 12px !important;
+    margin: 0px 3px 25px -1px;
+}
+
+@media only screen and (max-width: 900px){
+
+.success{
+    width:20%;
+}
+.Expiry-date{
+    width:80%;
+}
+.store-logo-img{
+    width:100%;
+    display:block;
+    height:auto;
+    margin:0pxa auto;
+}
+.store-logo-img img{
+    display:block;
+    margin:0px auto;
+}
+.store-logo-img h3{
+    text-align:center;
+    width:100%;
+}
+.save-logo-get-code a.button{
+    width:100% !important;
+    display:block;
+    padding: 9px 0 8px 0;
+}
+} 

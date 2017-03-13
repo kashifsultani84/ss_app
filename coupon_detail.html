@@ -9,7 +9,7 @@
                 <span>Back</span>
             </a>
         </div>
-        <div class="center sliding" id="store_heading_main"><img src="img/app-logo.png" width="180px"/></div>
+        <div class="center sliding"><img src="img/app-logo.png" width="180px"/></div>
         <div class="right">
             <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
         </div>
@@ -17,28 +17,54 @@
     </div>
 </div>
 <div class="pages">
-    <div data-page="stores_coupons" class="page">
+    <div data-page="coupon_detail" class="page">
 		<div class="subnavbar">
 			<div class="buttons-row"><a href="index.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="today_coupons.html" class="button">New Coupons</a><a href="stores.html" class="button">Top Stores</a><a href="categories.html" class="button">Categories</a></div>
 		</div>
         <div class="page-content" style="padding-top: 55px;">
-			<div class="content-block">
-				
-				<div class="row">
-					<div class="col-100">
-						<div class="col-80 store-name">
-							<h4 id="store_name_heading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></h4>
-						</div>
-						<div class="col-20 store-logo" id="store_logo_div">
-							Store Logo
-						</div>
-					</div>
-				</div>
-				<!-- end row -->
-				<div class="row stores-content" id="store_coupons_list1">
-				
-				</div>	
-            </div>
+			
+            <div class="content-block">
+                <div class="row main-logo-content no-gutter">
+                    <div class="inner-row-logo-store-content">
+                            <div class="col-90 logo-heading">
+                                <h2 class="no-margin"><span id="store_heading_main"></h2>
+                            </div>
+                            <div class="col-10 save-logo">
+                                    <i class="fa fa-star" id="star-icon-save-logo"></i>
+                            </div>
+                    </div>
+                </div>
+                <!--end inner-row-main-logo-content -->
+                    
+                <div class="col-100 logo-center">
+                    <div class="col-30 store-logo-img">
+                        <div id="store_logo_div"></div>
+                        <h3  id="coupon_title"></h3>
+                    </div>
+                </div>
+                <!--end logo-center-->
+                <div class="row logo-code-heading-conent">
+                <div class="col-50 logo-code">
+                    <h2 class="no-margin" id="store_inner_heading"></h2>
+                </div>
+                <div class="col-50 save-logo-get-code">
+                        <p><a href="#" class="button button-big button-fill color-gray">Get Code</a></p>
+                </div>
+                <div class="col-100">
+                    <p id="coupon_description"></p>
+                </div>
+                </div>
+                <!--end logo-code-heading-content-->
+                <div class="row logo-code-heading-conent">
+                <div class="col-50 logo-code">
+                    <h2 class="no-margin">Comments</h2>
+                </div>
+                <div class="col-50 save-logo-get-code">
+                        <p><a href="#" class="button button-big button-fill color-gray">All comments</a></p>
+                </div>
+
+                </div>
+            </div> 
         </div>
     </div>
 </div>
