@@ -462,6 +462,33 @@ $$(document).on('pageInit', function (e) {
 					alert('Error ' + error);
 				}
 			});
+            
+
+            $.ajax({
+			url: 'http://www.shoppingspout.us/api/coupon-comments2.php?coupon_id='+ coupon_id,
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					
+					var cdata = '';
+					
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+							if(key == 'comment_id')
+							cdata += '<div class="comments-list">'+ result[i].comment +' <br/>by <b>'+ result[i].comment_by +'</b></div>';
+							
+					   });
+					}
+					//alert(data);
+					
+					$('#comments_list').html(cdata);
+                
+				},
+			error: function (request, error) {
+					alert('Error ' + error);
+				}
+			});
     }
 	
 })

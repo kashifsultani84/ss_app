@@ -296,3 +296,9 @@ a.headings{
     padding: 9px 0 8px 0;
 }
 } 
+
+.comments-list {
+    
+    border-bottom: 2px dotted #ccc; 
+    padding:10px;   
+}
