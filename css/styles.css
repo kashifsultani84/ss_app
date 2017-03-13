@@ -230,7 +230,7 @@ a.headings{
     padding:10px !important;
 }
 .logo-center{
-    height:295px;
+    padding-bottom: 10px;
     background:#86c0ff;
     display:block;
 }
@@ -287,7 +287,8 @@ a.headings{
     text-align: center;
     width: 100%;
     color: #312f2f;
-    margin-top: 10px;
+    margin-top: 4px;
+    line-height: 22px;
 }
 .save-logo-get-code a.button{
     width:100% !important;
