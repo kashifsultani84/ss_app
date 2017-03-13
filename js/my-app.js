@@ -444,7 +444,7 @@ $$(document).on('pageInit', function (e) {
 							
 							store_inner_heading = result[i].store_name;
 							store_heading_main = result[i].store_name;
-							store_logo_main = '<img src="'+ result[i].store_logo +'" width="100%" height="100%"/>';	
+							store_logo_main = '<img src="'+ result[i].store_logo +'" width="50%" height="50%"/>';	
                             coupon_title = result[i].coupon_title;
                             coupon_description = result[i].coupon_description;
 					   });
