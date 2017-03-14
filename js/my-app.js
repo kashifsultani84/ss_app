@@ -572,7 +572,7 @@ var autocompleteDropdownAjax = myApp.autocomplete({
                     //alert(data[i].store_name);
 					if (data[i].store_name.toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(data[i]);
                     
-                    newList += " <li class='item-content'><div class='item-media'><i class='icon icon-form-name'></i></div><div class='item-inner'><div class='item-title'><i class='fa fa-tags' style='font-size:20px;color:#007aff;'></i> <a href='stores_coupons.html?store_id="+ data[i].store_id+ "'>" + data[i].store_name +"</a></div></div></li>";
+                    newList += " <a href='stores_coupons.html?store_id="+ data[i].store_id+ "'><li class='item-content' style='border-bottom: 1px solid #ccc;'><div class='item-media'><i class='icon icon-form-name'></i></div><div class='item-inner'><div class='item-title'><i class='fa fa-tags' style='font-size:20px;color:#007aff;'></i> " + data[i].store_name +"</div></div></li></a>";
                 }
                 // Hide Preoloader
                 autocomplete.hidePreloader();
