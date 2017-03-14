@@ -302,3 +302,10 @@ a.headings{
     border-bottom: 2px dotted #ccc; 
     padding:10px;   
 }
+
+
+
+
+.ui-filter-inset {
+    margin-top: 0;
+}
