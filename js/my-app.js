@@ -2,7 +2,8 @@
 //var myApp = new Framework7();
 
 var myApp = new Framework7({
-             swipePanel: 'left'
+             swipePanel: 'left',
+            pushState : true
          });
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
