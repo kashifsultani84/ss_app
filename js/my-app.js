@@ -88,6 +88,12 @@ $$(document).on('pageInit', function (e) {
 		// str is the content in the clipboard. 
 		alert (str);
 		
+		var text = "Hello World!";
+
+		cordova.plugins.clipboard.copy(text);
+
+		cordova.plugins.clipboard.paste(function (text) { alert(text); });
+		
         $.ajax({
 			url: 'http://www.shoppingspout.us/api/featured-stores2.php',
 			type: 'GET',
