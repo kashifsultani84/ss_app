@@ -86,7 +86,8 @@ $$(document).on('pageInit', function (e) {
 		 
 		var str = community.clipboard.getText;
 		// str is the content in the clipboard. 
-
+		alert (str);
+		
         $.ajax({
 			url: 'http://www.shoppingspout.us/api/featured-stores2.php',
 			type: 'GET',
