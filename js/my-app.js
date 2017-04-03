@@ -231,8 +231,8 @@ $$(document).on('pageInit', function (e) {
 						 if(key == 'coupon_id')
 						 {
 							couponURL = "<a href='#' onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\">" + result[i].coupon_title + "</a>";
-							
-							data 	+= 	'<div class="row main-store-content no-gutter">'
+							gotoLink = "onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\"";
+							data 	+= 	'<div class="row main-store-content no-gutter" '+ gotoLink +'>'
 									+		'<div class="inner-row-main-store-content">'
 									+				'<div class="col-8 stores-heading">'
 									+					'<h2 class="no-margin">' + couponURL + '</h2>'
@@ -337,7 +337,9 @@ $$(document).on('pageInit', function (e) {
 						 {
 							couponURL = "<a href='#' onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\">" + result[i].coupon_title + "</a>";
 							
-							data 	+= 	'<div class="row main-store-content no-gutter">'
+							gotoLink = "onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\"";
+							
+							data 	+= 	'<div class="row main-store-content no-gutter" '+ gotoLink +'>'
 									+		'<div class="inner-row-main-store-content">'
 									+				'<div class="col-80 stores-heading">'
 									+					'<h2 class="no-margin">' + couponURL + '</h2>'
@@ -407,7 +409,9 @@ $$(document).on('pageInit', function (e) {
 						 {
 							couponURL = "<a href='#' onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\">" + result[i].coupon_title + "</a>"; 						  
 							
-							data 	+= 	'<div class="row main-store-content no-gutter">'
+							gotoLink = "onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\"";
+							
+							data 	+= 	'<div class="row main-store-content no-gutter" '+ gotoLink +'>'
 									+		'<div class="inner-row-main-store-content">'
 									+				'<div class="col-8 stores-heading">'
 									+					'<h2 class="no-margin">' + couponURL +'</a></h2>'
