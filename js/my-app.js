@@ -229,10 +229,13 @@ $$(document).on('pageInit', function (e) {
 							success_ration = '0';
 							
 						 if(key == 'coupon_id')
+						 {
+							couponURL = "<a href='#' onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\">" + result[i].coupon_title + "</a>";
+							
 							data 	+= 	'<div class="row main-store-content no-gutter">'
 									+		'<div class="inner-row-main-store-content">'
 									+				'<div class="col-8 stores-heading">'
-									+					'<h2 class="no-margin"><a href="coupon_detail.html?coupon_id=' + result[i].coupon_id +'">' + result[i].coupon_title +'</a></h2>'
+									+					'<h2 class="no-margin">' + couponURL + '</h2>'
 									+				'</div>'
 									+				'<!-- <div class="col-20 save">'
 									+					'<h2 class="no-margin">SAVE</h2>'
@@ -256,6 +259,7 @@ $$(document).on('pageInit', function (e) {
 							store_heading = result[i].store_name;
 							store_heading_main = result[i].store_name + ' Coupons & Offers';
 							store_logo_main = '<img src="'+ result[i].store_logo +'" width="100%" height="100%"/>';		
+						 }	
 					   });
 					}
 					//alert(data);
@@ -330,10 +334,13 @@ $$(document).on('pageInit', function (e) {
 							success_ration = '0';
 							
 						 if(key == 'coupon_id')
+						 {
+							couponURL = "<a href='#' onclick=\"window.open('"+ result[i].coupon_url+"', '_system', 'location=yes'); return false;\">" + result[i].coupon_title + "</a>";
+							
 							data 	+= 	'<div class="row main-store-content no-gutter">'
 									+		'<div class="inner-row-main-store-content">'
 									+				'<div class="col-80 stores-heading">'
-									+					'<h2 class="no-margin"><a href="coupon_detail.html?coupon_id=' + result[i].coupon_id +'">' + result[i].coupon_title +'</a></h2>'
+									+					'<h2 class="no-margin">' + couponURL + '</h2>'
 									+				'</div>'
 									+				'<!-- <div class="col-20 save">'
 									+					'<h2 class="no-margin">SAVE</h2>'
@@ -353,7 +360,8 @@ $$(document).on('pageInit', function (e) {
 									+		'</div>'
 									+	'</div>'
 									+	'<!--end main-store-content no-gutter -->';
-									
+						 }
+						 
 					   });
 					}
 					//alert(data);
