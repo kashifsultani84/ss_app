@@ -80,19 +80,11 @@ $$(document).on('pageInit', function (e) {
 
 	if (page.name === 'index') {
 		
-		var str="something you want to copy to clipboard";
-		var result = community.clipboard.setText(str);
-		//result shows the bytes copied into clipboard, if result=="-1",then something is wrong. 
-		 
-		var str = community.clipboard.getText;
-		// str is the content in the clipboard. 
-		alert (str);
-		
 		var text = "Hello World!";
 
-		cordova.plugins.clipboard.copy(text);
+		window.plugins.copy(text);
 
-		cordova.plugins.clipboard.paste(function (text) { alert(text); });
+		window.plugins.paste(function (text) { alert(text); });
 		
         $.ajax({
 			url: 'http://www.shoppingspout.us/api/featured-stores2.php',
