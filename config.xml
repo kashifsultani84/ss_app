@@ -64,7 +64,7 @@
     <plugin name="cordova-plugin-media" />
     <plugin name="cordova-plugin-network-information" /> -->
     <plugin name="cordova-plugin-splashscreen" />
-	<plugin name="com.verso.cordova.clipboard" spec="0.1.0" source="pgb" />
+	<plugin name="cordova-plugin-clipboard" />
 	
     <!-- <plugin name="cordova-plugin-vibration" /> -->
 
