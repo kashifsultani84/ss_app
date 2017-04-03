@@ -79,7 +79,14 @@ $$(document).on('pageInit', function (e) {
     var page = e.detail.page;
 
 	if (page.name === 'index') {
-	
+		
+		var str="something you want to copy to clipboard";
+		var result = community.clipboard.setText(str);
+		//result shows the bytes copied into clipboard, if result=="-1",then something is wrong. 
+		 
+		var str = community.clipboard.getText;
+		// str is the content in the clipboard. 
+
         $.ajax({
 			url: 'http://www.shoppingspout.us/api/featured-stores2.php',
 			type: 'GET',
