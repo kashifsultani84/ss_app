@@ -41,7 +41,7 @@ $.ajax({
 				$('#featured_stores_list').html(data);
 			},
 		error: function (request, error) {
-				alert('Error ' + error);
+				alert('Error: Please Check Internet Connection');
 			}
 	});
 
@@ -65,7 +65,7 @@ $.ajax({
 			$('#featured_brands_list').html(data);
 		},
 	error: function (request, error) {
-			alert('Error ' + error);
+			alert('Error: Please Check Internet Connection');
 		}
 });
 
@@ -109,7 +109,7 @@ $$(document).on('pageInit', function (e) {
 					$('#featured_stores_list').html(data);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 		});
 		
@@ -132,7 +132,7 @@ $$(document).on('pageInit', function (e) {
 					$('#featured_brands_list').html(data);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 		});
 		
@@ -165,7 +165,7 @@ $$(document).on('pageInit', function (e) {
 					$('#store_list').html(data);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});
     }
@@ -191,7 +191,7 @@ $$(document).on('pageInit', function (e) {
 					$('#category_list').html(data);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});
     }
@@ -270,7 +270,7 @@ $$(document).on('pageInit', function (e) {
 					$('#store_logo_div').html(store_logo_main);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});
     }
@@ -305,7 +305,7 @@ $$(document).on('pageInit', function (e) {
 					//$('#category_logo_div').html(category_logo_main);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});
 			
@@ -371,7 +371,7 @@ $$(document).on('pageInit', function (e) {
 					$('#category_coupons_list1').html(data);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});	
     }
@@ -442,7 +442,7 @@ $$(document).on('pageInit', function (e) {
 					$('#category_coupons_list1').html(data);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});
     }
@@ -496,7 +496,7 @@ $$(document).on('pageInit', function (e) {
                     
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});
             
@@ -523,7 +523,7 @@ $$(document).on('pageInit', function (e) {
                 
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});
     }
@@ -561,7 +561,7 @@ function search()
 					//$('#store_list').html(data);
 				},
 			error: function (request, error) {
-					alert('Error ' + error);
+					alert('Error: Please Check Internet Connection');
 				}
 			});
 }
