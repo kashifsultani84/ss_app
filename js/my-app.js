@@ -374,6 +374,54 @@ $$(document).on('pageInit', function (e) {
 					alert('Error: Please Check Internet Connection');
 				}
 			});	
+			
+			
+			
+		var autocompleteDropdownAjax = myApp.autocomplete({
+			input: '#autocomplete-dropdown-ajax',
+			openIn: 'dropdown',
+			preloader: true, //enable preloader
+			valueProperty: 'id', //object's "value" property name
+			textProperty: 'name', //object's "text" property name
+			limit: 20, //limit to 20 results
+			dropdownPlaceholderText: '',
+			expandInput: true, // expand input
+			source: function (autocomplete, query, render) {
+				var results = [];
+				if (query.length === 0) {
+					render(results);
+					return;
+				}
+				// Show Preloader
+				autocomplete.showPreloader();
+				// Do Ajax request to Autocomplete data
+				$$.ajax({
+					url: 'http://www.shoppingspout.us/api/search-stores2.php',
+					method: 'GET',
+					dataType: 'json',
+					//send "query" to server. Useful in case you generate response dynamically
+					data: {
+						query: query
+					},
+					success: function (data) {
+						// Find matched items
+						var newList = '';
+						for (var i = 0; i < data.length; i++) {
+							//alert(data[i].store_name);
+							if (data[i].store_name.toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(data[i]);
+							
+							newList += " <a href='stores_coupons.html?store_id="+ data[i].store_id+ "'><li class='item-content' style='border-bottom: 1px solid #ccc;'><div class='item-media'><i class='icon icon-form-name'></i></div><div class='item-inner'><div class='item-title'><i class='fa fa-tags' style='font-size:20px;color:#007aff;'></i> " + data[i].store_name +"</div></div></li></a>";
+						}
+						// Hide Preoloader
+						autocomplete.hidePreloader();
+						// Render items by passing array with result items
+						//alert(results);
+						$('#store_list_items').html(newList);
+						//render(results);
+					}
+				});
+			}
+		});	
     }
 	
 	if (page.name === 'today_coupons') {
