@@ -36,117 +36,15 @@
 </head>
 
 <body>
-    <!-- Status bar overlay for full screen mode (PhoneGap) -->
-    <div class="statusbar-overlay"></div>
+    
+	<div class="content-block">
+		<h2 class="no-margin" id="featured_brands_lbl"></h2>
+			<div class="row" id="featured_brands_list">
+				<div class="col-50 feat-app" onclick="sessionStorage.setItem('site', 'http://www.shoppingspout.de');location.href='home.html';" style="cursor: pointer;"><img src="http://www.shoppingspout.com.au/files/flags/germany.png"></div>
+				<div class="col-50 feat-app" onclick="sessionStorage.setItem('site', 'http://www.shoppingspout.com.au');location.href='home.html';" style="cursor: pointer;"><img src="http://www.shoppingspout.com.au/files/flags/australia.png"></div>
+			</div>
+	</div>		
 
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-        <div class="content-block">
-			<!--<h2 class="side-panel-link-color">Menu</h2>-->
-            <p><a href="index.html" class="close-panel side-panel-link-color"><i class="fa fa-home" aria-hidden="true" style='font-size:26px; padding-right:10px;color: #131313;'></i>Home</a></p>
-			<p><a href="stores.html" class="close-panel side-panel-link-color"><i class="fa fa-tags" aria-hidden="true" style='font-size:22px; padding-right:10px; color: #131313;'></i>All Brands</a></p>
-			<p><a href="categories.html" class="close-panel side-panel-link-color"><i class="fa fa-list" aria-hidden="true" style='font-size:22px; padding-right:10px;color: #131313;'></i>All Categories</a></p>
-			<!--<p><a href="saved_coupons.html" class="close-panel side-panel-link-color"><i class="fa fa-star" aria-hidden="true" style='font-size:22px; padding-right:10px; color: #ffff00;'></i>Saved Coupons</a></p>
-			<p><a href="saved_coupons.html" class="close-panel side-panel-link-color"><i class="fa fa-sign-in" aria-hidden="true" style='font-size:22px; padding-right:10px;color: #131313;'></i>Login</a></p>
-			-->
-        </div>
-    </div>
-			
-    <!-- Views -->
-    <div class="views">
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Top Navbar-->
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding"><img src="img/app-logo.png" width="180px"/></div>
-                    <div class="right">
-                        <!--
-                          Right link contains only icon - additional "icon-only" class
-                          Additional "open-panel" class tells app to open panel when we click on this link
-                        -->
-                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-                    </div>
-					
-                </div>
-				
-            </div>
-			
-
-			
-            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-through toolbar-through">
-			
-                <!-- Page, "data-page" contains page name -->
-                <div data-page="index" class="page">
-					<div class="subnavbar">
-					   <div class="buttons-row"><a href="index.html" class="button active" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px;'></i></a><a href="today_coupons.html" class="button">New Coupons</a><a href="stores.html" class="button">Top Stores</a><a href="categories.html" class="button">Categories</a></div>
-					</div>
-				    <!-- Scrollable page content -->
-                    <div class="page-content">
-						<div class="content-block">
-							<div class="list-block">
-							  <ul>
-								<li class="item-content">
-								  <div class="item-title label">Search</div>
-								  <div class="item-input">
-									<input type="text" placeholder="Store/Brand Name" id="autocomplete-dropdown-ajax"></div>
-								</li>
-							  </ul>
-							</div>
-                            
-                            <!-- Search List -->
-                            <div class="list-block list-block-search searchbar-found">
-                                <ul id="store_list_items">
-
-
-                                </ul>
-                            </div>
-                            <!-- Search List -->
-						</div>
-                        
-                        
-                        
-						<div class="content-block f-stores">
-							<div class="row no-margin" id="featured_stores_list">
-							<div class='col-50 half'>
-                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-                                <span class="sr-only">Loading...</span>    
-                            </div>	
-							</div>
-						</div>
-						
-						
-						
-						<div class="content-block">
-							<h2 class="no-margin">Featured Brands</h2>
-							<div class="row" id="featured_brands_list">
-                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-								<span class="sr-only">Loading...</span>        
-							</div>
-						</div>
-						
-                    </div>
-                </div>
-            </div>
-			
-			
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
-                <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href='#' onclick='window.open("https://plus.google.com/110215555379073494067/", "_system", "location=yes"); return false;' class="link"><i class="fa fa-google-plus-square" aria-hidden="true" style="font-size: 35px; color: #ea261b;"></i></a>
-					<a href='#' onclick='window.open("https://www.facebook.com/shoppingspout", "_system", "location=yes"); return false;' class="link"><i class="fa fa-facebook-square" aria-hidden="true" style="font-size: 35px; color: #094e98;"></i></a>
-					<a href='#' onclick='window.open("http://www.linkedin.com/company/shoppingspout", "_system", "location=yes"); return false;' class="link"><i class="fa fa-linkedin-square" aria-hidden="true" style="font-size: 35px;"></i></a>
-					<a href='#' onclick='window.open("https://twitter.com/ShoppingSpout", "_system", "location=yes"); return false;' class="link"><i class="fa fa-twitter-square" aria-hidden="true" style="font-size: 35px; color: #6cb3ff;"></i></a>
-					<a href='#' onclick='window.open("https://www.pinterest.com/shopingspout/", "_system", "location=yes"); return false;' class="link"><i class="fa fa-pinterest-square" aria-hidden="true" style="font-size: 35px; color: #ea261b;"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.js"></script>

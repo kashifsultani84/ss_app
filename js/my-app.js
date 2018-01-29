@@ -18,10 +18,17 @@ var mainView = myApp.addView('.view-main', {
 //$$('.view').addClass('theme-red');
 //$$('.view').addClass('theme-blue');
 //$$('.view').addClass('theme-green');
+var site_url = sessionStorage.getItem('site');
 
+if(!site_url){
+	var site_url = 'http://www.shoppingspout.de';
+	sessionStorage.setItem('site', 'http://www.shoppingspout.de');
+}	
+
+//alert("default: "+site_url);
 //getting top store banners
 $.ajax({
-		url: 'http://www.shoppingspout.us/api/featured-stores2.php',
+		url: site_url+'/api/featured-stores2.php',
 		type: 'GET',
 		dataType: 'json',
 		success: function (result) {
@@ -47,7 +54,7 @@ $.ajax({
 
 //getting top brands	
 $.ajax({
-	url: 'http://www.shoppingspout.us/api/featured-brands2.php',
+	url: site_url+'/api/featured-brands2.php',
 	type: 'GET',
 	dataType: 'json',
 	success: function (result) {
@@ -69,7 +76,87 @@ $.ajax({
 		}
 });
 
-
+ $.ajax({
+	url: site_url+'/api/strings.php',
+	type: 'GET',
+	dataType: 'json',
+	success: function (result) {
+			//alert(result[0].store_id)
+			//alert(result.length);
+			var data = '';
+			var back_lbl = '';
+			var home_lbl = '';
+			var new_coupons_lbl = '';
+			var all_stores_lbl = '';
+			var all_categories_lbl = '';
+			var categories_lbl = '';
+			var top_stores_lbl = '';
+			var search_lbl = '';
+			var search_placeholder_text_lbl = '';
+			var store_not_found_lbl = '';
+			var category_not_found_lbl = '';
+			var success_lbl = '';
+			var loading_lbl = '';
+			var loading_lbl2 = '';
+			var featured_brands_lbl = '';
+			
+			for (var i=0 ; i <= (result.length-1); i++) {
+			   
+			   $.each( result[i], function( key, value ) {
+				 if(key == 'back')
+					back_lbl = result[i].back;
+				 if(key == 'home')
+					home_lbl = result[i].home;
+				if(key == 'new_coupons')
+					new_coupons_lbl = result[i].new_coupons;
+				if(key == 'all_stores')
+					all_stores_lbl = result[i].all_stores;
+				if(key == 'all_categories')
+					all_categories_lbl = result[i].all_categories;
+				if(key == 'categories')
+					categories_lbl = result[i].categories;
+				if(key == 'top_stores')
+					top_stores_lbl = result[i].top_stores;
+				if(key == 'search')
+					search_lbl = result[i].search;
+				if(key == 'search_placeholder_text')
+					search_placeholder_text_lbl = result[i].search_placeholder_text;
+				if(key == 'store_not_found')
+					store_not_found_lbl = result[i].store_not_found;
+				if(key == 'category_not_found')
+					category_not_found_lbl = result[i].category_not_found;
+				if(key == 'success')
+					success_lbl = result[i].success;
+				if(key == 'loading')
+					loading_lbl = result[i].loading;
+				if(key == 'loading2')
+					loading_lbl2 = result[i].loading2;
+				if(key == 'featured_brands')
+					featured_brands_lbl = result[i].featured_brands;					
+			   });
+			}
+			
+			$('#back_lbl').html(back_lbl);
+			$('#home_lbl').html(home_lbl);
+			$('#new_coupons_lbl').html(new_coupons_lbl);
+			$('#all_stores_lbl').html(all_stores_lbl);
+			$('#all_categories_lbl').html(all_categories_lbl);
+			$('#categories_lbl').html(categories_lbl);
+			$('#top_stores_lbl').html(top_stores_lbl);
+			$('#search_lbl').html(search_lbl);
+			$("#autocomplete-dropdown-ajax").attr("placeholder", search_placeholder_text_lbl).placeholder();
+			$('#store_not_found_lbl').html(store_not_found_lbl);
+			$('#category_not_found_lbl').html(category_not_found_lbl);
+			$('#success_lbl').html(success_lbl);
+			$('#loading_lbl').html(loading_lbl);
+			$('#loading_lbl2').html(loading_lbl2);
+			$('#featured_brands_lbl').html(featured_brands_lbl);
+			
+		},
+	error: function (request, error) {
+			alert('Error: Please Check Internet Connection');
+		}
+});
 
 
 // Option 2. Using one 'pageInit' event handler for all pages:
@@ -77,10 +164,97 @@ $$(document).on('pageInit', function (e) {
 
    // Get page data from event data
     var page = e.detail.page;
-
-	if (page.name === 'index') {
-		
-
+	//var site = page.query.site;
+	//alert(site);
+	var site_url = sessionStorage.getItem('site');
+	//if(!site_url)
+		//var site_url = 'http://www.shoppingspout.de';
+	//alert(site_url);
+	//alert(page.name);
+	
+	if (page.name === 'home' || page.name === 'index') {
+	//alert("here");
+	$.ajax({
+	url: site_url+'/api/strings.php',
+	type: 'GET',
+	dataType: 'json',
+	success: function (result) {
+			//alert(result[0].store_id)
+			//alert(result.length);
+			var data = '';
+			var back_lbl = '';
+			var home_lbl = '';
+			var new_coupons_lbl = '';
+			var all_stores_lbl = '';
+			var all_categories_lbl = '';
+			var categories_lbl = '';
+			var top_stores_lbl = '';
+			var search_lbl = '';
+			var search_placeholder_text_lbl = '';
+			var store_not_found_lbl = '';
+			var category_not_found_lbl = '';
+			var success_lbl = '';
+			var loading_lbl = '';
+			var loading_lbl2 = '';
+			var featured_brands_lbl = '';
+			
+			for (var i=0 ; i <= (result.length-1); i++) {
+			   
+			   $.each( result[i], function( key, value ) {
+				 if(key == 'back')
+					back_lbl = result[i].back;
+				 if(key == 'home')
+					home_lbl = result[i].home;
+				if(key == 'new_coupons')
+					new_coupons_lbl = result[i].new_coupons;
+				if(key == 'all_stores')
+					all_stores_lbl = result[i].all_stores;
+				if(key == 'all_categories')
+					all_categories_lbl = result[i].all_categories;
+				if(key == 'categories')
+					categories_lbl = result[i].categories;
+				if(key == 'top_stores')
+					top_stores_lbl = result[i].top_stores;
+				if(key == 'search')
+					search_lbl = result[i].search;
+				if(key == 'search_placeholder_text')
+					search_placeholder_text_lbl = result[i].search_placeholder_text;
+				if(key == 'store_not_found')
+					store_not_found_lbl = result[i].store_not_found;
+				if(key == 'category_not_found')
+					category_not_found_lbl = result[i].category_not_found;
+				if(key == 'success')
+					success_lbl = result[i].success;
+				if(key == 'loading')
+					loading_lbl = result[i].loading;
+				if(key == 'loading2')
+					loading_lbl2 = result[i].loading2;
+				if(key == 'featured_brands')
+					featured_brands_lbl = result[i].featured_brands;					
+			   });
+			}
+			
+			$('#back_lbl').html(back_lbl);
+			$('#home_lbl').html(home_lbl);
+			$('#new_coupons_lbl').html(new_coupons_lbl);
+			$('#all_stores_lbl').html(all_stores_lbl);
+			$('#all_categories_lbl').html(all_categories_lbl);
+			$('#categories_lbl').html(categories_lbl);
+			$('#top_stores_lbl').html(top_stores_lbl);
+			$('#search_lbl').html(search_lbl);
+			$("#autocomplete-dropdown-ajax").attr("placeholder", search_placeholder_text_lbl).placeholder();
+			$('#store_not_found_lbl').html(store_not_found_lbl);
+			$('#category_not_found_lbl').html(category_not_found_lbl);
+			$('#success_lbl').html(success_lbl);
+			$('#loading_lbl').html(loading_lbl);
+			$('#loading_lbl2').html(loading_lbl2);
+			$('#featured_brands_lbl').html(featured_brands_lbl);
+			
+		},
+	error: function (request, error) {
+			alert('Error: Please Check Internet Connection');
+		}
+});
 		//var str="something you want to copy to clipboard";
 		//var result = community.clipboard.setText(str);
 		//result shows the bytes copied into clipboard, if result=="-1",then something is wrong. 
@@ -88,10 +262,9 @@ $$(document).on('pageInit', function (e) {
 		//var str = community.clipboard.getText;
 		// str is the content in the clipboard. 
 		//alert (str);
-
 		
         $.ajax({
-			url: 'http://www.shoppingspout.us/api/featured-stores2.php',
+			url: site_url+'/api/featured-stores2.php',
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -107,6 +280,8 @@ $$(document).on('pageInit', function (e) {
 					}
 					
 					$('#featured_stores_list').html(data);
+					
+					
 				},
 			error: function (request, error) {
 					alert('Error: Please Check Internet Connection');
@@ -114,7 +289,7 @@ $$(document).on('pageInit', function (e) {
 		});
 		
 		$.ajax({
-			url: 'http://www.shoppingspout.us/api/featured-brands2.php',
+			url: site_url+'/api/featured-brands2.php',
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -143,7 +318,7 @@ $$(document).on('pageInit', function (e) {
 	
         //jQuery.noConflict();
 		$.ajax({
-			url: 'http://www.shoppingspout.us/api/all-stores2.php',
+			url: site_url+'/api/all-stores2.php',
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -168,12 +343,97 @@ $$(document).on('pageInit', function (e) {
 					alert('Error: Please Check Internet Connection');
 				}
 			});
+		
+		$.ajax({
+			url: site_url+'/api/strings.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					//alert(result[0].store_id)
+					//alert(result.length);
+					var data = '';
+					var back_lbl = '';
+					var home_lbl = '';
+					var new_coupons_lbl = '';
+					var new_coupons_heading_lbl = '';
+					var all_stores_lbl = '';
+					var all_categories_lbl = '';
+					var categories_lbl = '';
+					var top_stores_lbl = '';
+					var search_lbl = '';
+					var search_placeholder_text_lbl = '';
+					var store_not_found_lbl = '';
+					var category_not_found_lbl = '';
+					var success_lbl = '';
+					var loading_lbl = '';
+					var loading_lbl2 = '';
+					var featured_brands_lbl = '';
+					
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						 if(key == 'back')
+							back_lbl = result[i].back;
+						 if(key == 'home')
+							home_lbl = result[i].home;
+						if(key == 'new_coupons')
+							new_coupons_lbl = result[i].new_coupons;
+						if(key == 'new_coupons_heading')
+							new_coupons_heading_lbl = result[i].new_coupons_heading;
+						if(key == 'all_stores')
+							all_stores_lbl = result[i].all_stores;
+						if(key == 'all_categories')
+							all_categories_lbl = result[i].all_categories;
+						if(key == 'categories')
+							categories_lbl = result[i].categories;
+						if(key == 'top_stores')
+							top_stores_lbl = result[i].top_stores;
+						if(key == 'search')
+							search_lbl = result[i].search;
+						if(key == 'search_placeholder_text')
+							search_placeholder_text_lbl = result[i].search_placeholder_text;
+						if(key == 'store_not_found')
+							store_not_found_lbl = result[i].store_not_found;
+						if(key == 'category_not_found')
+							category_not_found_lbl = result[i].category_not_found;
+						if(key == 'success')
+							success_lbl = result[i].success;
+						if(key == 'loading')
+							loading_lbl = result[i].loading;
+						if(key == 'loading2')
+							loading_lbl2 = result[i].loading2;
+						if(key == 'featured_brands')
+							featured_brands_lbl = result[i].featured_brands;					
+					   });
+					}
+					
+					$('#back_lbl_st').html(back_lbl);
+					$('#home_lbl').html(home_lbl);
+					$('#new_coupons_lbl_st').html(new_coupons_lbl);
+					$('#all_stores_lbl').html(all_stores_lbl);
+					$('#all_categories_lbl').html(all_categories_lbl);
+					$('#categories_lbl_st').html(categories_lbl);
+					$('#top_stores_lbl_st').html(top_stores_lbl);
+					$('#search_lbl_st').html(search_lbl);
+					$("#search_placeholder_lbl_st").attr("placeholder", search_placeholder_text_lbl).placeholder();
+					$('#store_not_found_lbl').html(store_not_found_lbl);
+					$('#category_not_found_lbl').html(category_not_found_lbl);
+					$('#success_lbl_st').html(success_lbl);
+					$('#loading_lbl_st').html(loading_lbl);
+					$('#loading_lbl2').html(loading_lbl2);
+					$('#featured_brands_lbl').html(featured_brands_lbl);
+					
+				},
+			error: function (request, error) {
+					alert('Error: Please Check Internet Connection');
+				}
+		});	
     }
 	
 	if (page.name === 'categories') {
 
 		$.ajax({
-			url: 'http://www.shoppingspout.us/api/all-categories2.php',
+			url: site_url+'/api/all-categories2.php',
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -194,6 +454,91 @@ $$(document).on('pageInit', function (e) {
 					alert('Error: Please Check Internet Connection');
 				}
 			});
+		
+		$.ajax({
+			url: site_url+'/api/strings.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					//alert(result[0].store_id)
+					//alert(result.length);
+					var data = '';
+					var back_lbl = '';
+					var home_lbl = '';
+					var new_coupons_lbl = '';
+					var new_coupons_heading_lbl = '';
+					var all_stores_lbl = '';
+					var all_categories_lbl = '';
+					var categories_lbl = '';
+					var top_stores_lbl = '';
+					var search_lbl = '';
+					var search_placeholder_text_lbl = '';
+					var store_not_found_lbl = '';
+					var category_not_found_lbl = '';
+					var success_lbl = '';
+					var loading_lbl = '';
+					var loading_lbl2 = '';
+					var featured_brands_lbl = '';
+					
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						 if(key == 'back')
+							back_lbl = result[i].back;
+						 if(key == 'home')
+							home_lbl = result[i].home;
+						if(key == 'new_coupons')
+							new_coupons_lbl = result[i].new_coupons;
+						if(key == 'new_coupons_heading')
+							new_coupons_heading_lbl = result[i].new_coupons_heading;
+						if(key == 'all_stores')
+							all_stores_lbl = result[i].all_stores;
+						if(key == 'all_categories')
+							all_categories_lbl = result[i].all_categories;
+						if(key == 'categories')
+							categories_lbl = result[i].categories;
+						if(key == 'top_stores')
+							top_stores_lbl = result[i].top_stores;
+						if(key == 'search')
+							search_lbl = result[i].search;
+						if(key == 'search_placeholder_text')
+							search_placeholder_text_lbl = result[i].search_placeholder_text;
+						if(key == 'store_not_found')
+							store_not_found_lbl = result[i].store_not_found;
+						if(key == 'category_not_found')
+							category_not_found_lbl = result[i].category_not_found;
+						if(key == 'success')
+							success_lbl = result[i].success;
+						if(key == 'loading')
+							loading_lbl = result[i].loading;
+						if(key == 'loading2')
+							loading_lbl2 = result[i].loading2;
+						if(key == 'featured_brands')
+							featured_brands_lbl = result[i].featured_brands;					
+					   });
+					}
+					
+					$('#back_lbl_ct').html(back_lbl);
+					$('#home_lbl').html(home_lbl);
+					$('#new_coupons_lbl_ct').html(new_coupons_lbl);
+					$('#all_stores_lbl').html(all_stores_lbl);
+					$('#all_categories_lbl').html(all_categories_lbl);
+					$('#categories_lbl_ct').html(categories_lbl);
+					$('#top_stores_lbl_ct').html(top_stores_lbl);
+					$('#search_lbl_ct').html(search_lbl);
+					$("#search_placeholder_lbl_ct").attr("placeholder", search_placeholder_text_lbl).placeholder();
+					$('#store_not_found_lbl').html(store_not_found_lbl);
+					$('#category_not_found_lbl_ct').html(category_not_found_lbl);
+					$('#success_lbl_ct').html(success_lbl);
+					$('#loading_lbl_ct').html(loading_lbl);
+					$('#loading_lbl2').html(loading_lbl2);
+					$('#featured_brands_lbl').html(featured_brands_lbl);
+					
+				},
+			error: function (request, error) {
+					alert('Error: Please Check Internet Connection');
+				}
+		});
     }
 	
 	
@@ -203,7 +548,7 @@ $$(document).on('pageInit', function (e) {
 		var store_id = page.query.store_id;
 		
 		$.ajax({
-			url: 'http://www.shoppingspout.us/api/store-coupons2.php?store_id='+ store_id,
+			url: site_url+'/api/store-coupons2.php?store_id='+ store_id,
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -248,7 +593,7 @@ $$(document).on('pageInit', function (e) {
 									+			'<p>' + result[i].coupon_description +'</p>'
 									+		'</div>'
 									+		'<div class="col-30 success no-margin">'
-									+			'<h5>' + success_ration +'% Success</h5>'
+									+			'<h5>' + success_ration +'% <span id="success_lbl_sd">Success</span></h5>'
 									+		'</div>'
 									+		'<div class="col-60 Expiry-date no-margin">'
 									+			'<h5>' + end_date +'</h5>'
@@ -273,6 +618,91 @@ $$(document).on('pageInit', function (e) {
 					alert('Error: Please Check Internet Connection');
 				}
 			});
+			
+			$.ajax({
+			url: site_url+'/api/strings.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					//alert(result[0].store_id)
+					//alert(result.length);
+					var data = '';
+					var back_lbl = '';
+					var home_lbl = '';
+					var new_coupons_lbl = '';
+					var new_coupons_heading_lbl = '';
+					var all_stores_lbl = '';
+					var all_categories_lbl = '';
+					var categories_lbl = '';
+					var top_stores_lbl = '';
+					var search_lbl = '';
+					var search_placeholder_text_lbl = '';
+					var store_not_found_lbl = '';
+					var category_not_found_lbl = '';
+					var success_lbl = '';
+					var loading_lbl = '';
+					var loading_lbl2 = '';
+					var featured_brands_lbl = '';
+					
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						 if(key == 'back')
+							back_lbl = result[i].back;
+						 if(key == 'home')
+							home_lbl = result[i].home;
+						if(key == 'new_coupons')
+							new_coupons_lbl = result[i].new_coupons;
+						if(key == 'new_coupons_heading')
+							new_coupons_heading_lbl = result[i].new_coupons_heading;
+						if(key == 'all_stores')
+							all_stores_lbl = result[i].all_stores;
+						if(key == 'all_categories')
+							all_categories_lbl = result[i].all_categories;
+						if(key == 'categories')
+							categories_lbl = result[i].categories;
+						if(key == 'top_stores')
+							top_stores_lbl = result[i].top_stores;
+						if(key == 'search')
+							search_lbl = result[i].search;
+						if(key == 'search_placeholder_text')
+							search_placeholder_text_lbl = result[i].search_placeholder_text;
+						if(key == 'store_not_found')
+							store_not_found_lbl = result[i].store_not_found;
+						if(key == 'category_not_found')
+							category_not_found_lbl = result[i].category_not_found;
+						if(key == 'success')
+							success_lbl = result[i].success;
+						if(key == 'loading')
+							loading_lbl = result[i].loading;
+						if(key == 'loading2')
+							loading_lbl2 = result[i].loading2;
+						if(key == 'featured_brands')
+							featured_brands_lbl = result[i].featured_brands;					
+					   });
+					}
+					
+					$('#back_lbl').html(back_lbl);
+					$('#home_lbl').html(home_lbl);
+					$('#new_coupons_lbl_sd').html(new_coupons_lbl);
+					$('#all_stores_lbl').html(all_stores_lbl);
+					$('#all_categories_lbl').html(all_categories_lbl);
+					$('#categories_lbl_sd').html(categories_lbl);
+					$('#top_stores_lbl_sd').html(top_stores_lbl);
+					$('#search_lbl').html(search_lbl);
+					$('#search_placeholder_text_lbl').html(search_placeholder_text_lbl);
+					$('#store_not_found_lbl').html(store_not_found_lbl);
+					$('#category_not_found_lbl').html(category_not_found_lbl);
+					$('#success_lbl_sd').html(success_lbl);
+					$('#loading_lbl_sd').html(loading_lbl);
+					$('#loading_lbl2').html(loading_lbl2);
+					$('#featured_brands_lbl').html(featured_brands_lbl);
+					
+				},
+			error: function (request, error) {
+					alert('Error: Please Check Internet Connection');
+				}
+		});	
     }
 	
 	
@@ -281,7 +711,7 @@ $$(document).on('pageInit', function (e) {
 		var category_id = page.query.category_id;
 		
 		$.ajax({
-			url: 'http://www.shoppingspout.us/api/category-info2.php?category_id=' + category_id,
+			url: site_url+'/api/category-info2.php?category_id=' + category_id,
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -311,7 +741,7 @@ $$(document).on('pageInit', function (e) {
 			
 			
 		$.ajax({
-			url: 'http://www.shoppingspout.us/api/category-coupons2.php?category_id=' + category_id,
+			url: site_url+'/api/category-coupons2.php?category_id=' + category_id,
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -355,7 +785,7 @@ $$(document).on('pageInit', function (e) {
 									+			'<p>' + result[i].coupon_description +'</p>'
 									+		'</div>'
 									+		'<div class="col-30 success no-margin">'
-									+			'<h5>' + success_ration +'% Success</h5>'
+									+			'<h5>' + success_ration +'% <span id="success_lbl_cc">Success</span></h5>'
 									+		'</div>'
 									+		'<div class="col-60 Expiry-date no-margin">'
 									+			'<h5>' + end_date +'</h5>'
@@ -396,7 +826,7 @@ $$(document).on('pageInit', function (e) {
 				autocomplete.showPreloader();
 				// Do Ajax request to Autocomplete data
 				$$.ajax({
-					url: 'http://www.shoppingspout.us/api/search-stores2.php',
+					url: site_url+'/api/search-stores2.php',
 					method: 'GET',
 					dataType: 'json',
 					//send "query" to server. Useful in case you generate response dynamically
@@ -422,13 +852,99 @@ $$(document).on('pageInit', function (e) {
 				});
 			}
 		});	
+		
+		
+		$.ajax({
+			url: site_url+'/api/strings.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					//alert(result[0].store_id)
+					//alert(result.length);
+					var data = '';
+					var back_lbl = '';
+					var home_lbl = '';
+					var new_coupons_lbl = '';
+					var new_coupons_heading_lbl = '';
+					var all_stores_lbl = '';
+					var all_categories_lbl = '';
+					var categories_lbl = '';
+					var top_stores_lbl = '';
+					var search_lbl = '';
+					var search_placeholder_text_lbl = '';
+					var store_not_found_lbl = '';
+					var category_not_found_lbl = '';
+					var success_lbl = '';
+					var loading_lbl = '';
+					var loading_lbl2 = '';
+					var featured_brands_lbl = '';
+					
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						 if(key == 'back')
+							back_lbl = result[i].back;
+						 if(key == 'home')
+							home_lbl = result[i].home;
+						if(key == 'new_coupons')
+							new_coupons_lbl = result[i].new_coupons;
+						if(key == 'new_coupons_heading')
+							new_coupons_heading_lbl = result[i].new_coupons_heading;
+						if(key == 'all_stores')
+							all_stores_lbl = result[i].all_stores;
+						if(key == 'all_categories')
+							all_categories_lbl = result[i].all_categories;
+						if(key == 'categories')
+							categories_lbl = result[i].categories;
+						if(key == 'top_stores')
+							top_stores_lbl = result[i].top_stores;
+						if(key == 'search')
+							search_lbl = result[i].search;
+						if(key == 'search_placeholder_text')
+							search_placeholder_text_lbl = result[i].search_placeholder_text;
+						if(key == 'store_not_found')
+							store_not_found_lbl = result[i].store_not_found;
+						if(key == 'category_not_found')
+							category_not_found_lbl = result[i].category_not_found;
+						if(key == 'success')
+							success_lbl = result[i].success;
+						if(key == 'loading')
+							loading_lbl = result[i].loading;
+						if(key == 'loading2')
+							loading_lbl2 = result[i].loading2;
+						if(key == 'featured_brands')
+							featured_brands_lbl = result[i].featured_brands;					
+					   });
+					}
+					
+					$('#back_lbl_cc').html(back_lbl);
+					$('#home_lbl').html(home_lbl);
+					$('#new_coupons_lbl_cc').html(new_coupons_lbl);
+					$('#all_stores_lbl').html(all_stores_lbl);
+					$('#all_categories_lbl').html(all_categories_lbl);
+					$('#categories_lbl_cc').html(categories_lbl);
+					$('#top_stores_lbl_cc').html(top_stores_lbl);
+					$('#search_lbl_cc').html(search_lbl);
+					$("#autocomplete-dropdown-ajax").attr("placeholder", search_placeholder_text_lbl).placeholder();
+					$('#store_not_found_lbl').html(store_not_found_lbl);
+					$('#category_not_found_lbl_cc').html(category_not_found_lbl);
+					$('#success_lbl_cc').html(success_lbl);
+					$('#loading_lbl_cc').html(loading_lbl);
+					$('#loading_lbl2').html(loading_lbl2);
+					$('#featured_brands_lbl').html(featured_brands_lbl);
+					
+				},
+			error: function (request, error) {
+					alert('Error: Please Check Internet Connection');
+				}
+		});
+		
     }
 	
 	if (page.name === 'today_coupons') {
 		
-
 		$.ajax({
-			url: 'http://www.shoppingspout.us/api/today-coupons2.php',
+			url: site_url+'/api/today-coupons2.php',
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -475,7 +991,7 @@ $$(document).on('pageInit', function (e) {
 									+			'<p>' + result[i].coupon_description +'</p>'
 									+		'</div>'
 									+		'<div class="col-30 success no-margin">'
-									+			'<h5>' + success_ration +'% Success</h5>'
+									+			'<h5>' + success_ration +'% <span id="success_lbl_td">Success</span></h5>'
 									+		'</div>'
 									+		'<div class="col-60 Expiry-date no-margin">'
 									+			'<h5>' + end_date +'</h5>'
@@ -493,6 +1009,91 @@ $$(document).on('pageInit', function (e) {
 					alert('Error: Please Check Internet Connection');
 				}
 			});
+		
+		$.ajax({
+			url: site_url+'/api/strings.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function (result) {
+					//alert(result[0].store_id)
+					//alert(result.length);
+					var data = '';
+					var back_lbl = '';
+					var home_lbl = '';
+					var new_coupons_lbl = '';
+					var new_coupons_heading_lbl = '';
+					var all_stores_lbl = '';
+					var all_categories_lbl = '';
+					var categories_lbl = '';
+					var top_stores_lbl = '';
+					var search_lbl = '';
+					var search_placeholder_text_lbl = '';
+					var store_not_found_lbl = '';
+					var category_not_found_lbl = '';
+					var success_lbl = '';
+					var loading_lbl = '';
+					var loading_lbl2 = '';
+					var featured_brands_lbl = '';
+					
+					for (var i=0 ; i <= (result.length-1); i++) {
+					   
+					   $.each( result[i], function( key, value ) {
+						 if(key == 'back')
+							back_lbl = result[i].back;
+						 if(key == 'home')
+							home_lbl = result[i].home;
+						if(key == 'new_coupons')
+							new_coupons_lbl = result[i].new_coupons;
+						if(key == 'new_coupons_heading')
+							new_coupons_heading_lbl = result[i].new_coupons_heading;
+						if(key == 'all_stores')
+							all_stores_lbl = result[i].all_stores;
+						if(key == 'all_categories')
+							all_categories_lbl = result[i].all_categories;
+						if(key == 'categories')
+							categories_lbl = result[i].categories;
+						if(key == 'top_stores')
+							top_stores_lbl = result[i].top_stores;
+						if(key == 'search')
+							search_lbl = result[i].search;
+						if(key == 'search_placeholder_text')
+							search_placeholder_text_lbl = result[i].search_placeholder_text;
+						if(key == 'store_not_found')
+							store_not_found_lbl = result[i].store_not_found;
+						if(key == 'category_not_found')
+							category_not_found_lbl = result[i].category_not_found;
+						if(key == 'success')
+							success_lbl = result[i].success;
+						if(key == 'loading')
+							loading_lbl = result[i].loading;
+						if(key == 'loading2')
+							loading_lbl2 = result[i].loading2;
+						if(key == 'featured_brands')
+							featured_brands_lbl = result[i].featured_brands;					
+					   });
+					}
+					
+					$('#back_lbl').html(back_lbl);
+					$('#home_lbl').html(home_lbl);
+					$('#new_coupons_lbl_td').html(new_coupons_lbl);
+					$('#all_stores_lbl').html(all_stores_lbl);
+					$('#all_categories_lbl').html(all_categories_lbl);
+					$('#categories_lbl_td').html(categories_lbl);
+					$('#top_stores_lbl_td').html(top_stores_lbl);
+					$('#search_lbl').html(search_lbl);
+					$('#search_placeholder_text_lbl').html(search_placeholder_text_lbl);
+					$('#store_not_found_lbl').html(store_not_found_lbl);
+					$('#category_not_found_lbl').html(category_not_found_lbl);
+					$('#success_lbl_td').html(success_lbl);
+					$('#loading_lbl_td').html(loading_lbl);
+					$('#loading_lbl2').html(loading_lbl2);
+					$('#featured_brands_lbl').html(featured_brands_lbl);
+					
+				},
+			error: function (request, error) {
+					alert('Error: Please Check Internet Connection');
+				}
+		});
     }
 	
 	
@@ -502,7 +1103,7 @@ $$(document).on('pageInit', function (e) {
 		var coupon_id = page.query.coupon_id;
 		
 		$.ajax({
-			url: 'http://www.shoppingspout.us/api/coupon-detail2.php?coupon_id='+ coupon_id,
+			url: site_url+'/api/coupon-detail2.php?coupon_id='+ coupon_id,
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -550,7 +1151,7 @@ $$(document).on('pageInit', function (e) {
             
 
             $.ajax({
-			url: 'http://www.shoppingspout.us/api/coupon-comments2.php?coupon_id='+ coupon_id,
+			url: site_url+'/api/coupon-comments2.php?coupon_id='+ coupon_id,
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -589,7 +1190,7 @@ function search()
 {
 	var value = document.getElementById('test').value;
 	$.ajax({
-			url: 'http://www.shoppingspout.us/api/search-stores2.php?search_term='+value,
+			url: site_url+'/api/search-stores2.php?search_term='+value,
 			type: 'GET',
 			dataType: 'json',
 			success: function (result) {
@@ -635,7 +1236,7 @@ var autocompleteDropdownAjax = myApp.autocomplete({
         autocomplete.showPreloader();
         // Do Ajax request to Autocomplete data
         $$.ajax({
-            url: 'http://www.shoppingspout.us/api/search-stores2.php',
+            url: site_url+'/api/search-stores2.php',
             method: 'GET',
             dataType: 'json',
             //send "query" to server. Useful in case you generate response dynamically

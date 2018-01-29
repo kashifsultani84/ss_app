@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://shoppingspout.com/ns/1.0"
-        id        = "com.shoppingspout.coupons.deals.savings"
+        id        = "com.shoppingspout.coupons.deals.savings.de"
         version   = "2.0.0">
 
     <name>ShoppingSpout</name>
@@ -12,7 +12,7 @@
         Thousands Offers And Coupons From Top Brands
     </description>
 
-    <author href="http://shoppingspout.us" email="kashif@shoppingspout.com">
+    <author href="http://shoppingspout.de" email="kashif@shoppingspout.com">
         Kashif Nawaz
     </author>
 
@@ -135,7 +135,7 @@
 
     <access origin="*"/>
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
-    <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
+    <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_.md.html -->
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

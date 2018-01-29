@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Your app title -->
+    <title>ShoppingSpout</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+	<!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+			<!--<h2 class="side-panel-link-color">Menu</h2>-->
+            <p><a href="index.html" class="close-panel side-panel-link-color"><i class="fa fa-home" aria-hidden="true" style='font-size:26px; padding-right:10px;color: #131313;'></i><span id="home_lbl"></span></a></p>
+			<p><a href="stores.html" class="close-panel side-panel-link-color"><i class="fa fa-tags" aria-hidden="true" style='font-size:22px; padding-right:10px; color: #131313;'></i><span id="all_stores_lbl"></span></a></p>
+			<p><a href="categories.html" class="close-panel side-panel-link-color"><i class="fa fa-list" aria-hidden="true" style='font-size:22px; padding-right:10px;color: #131313;'></i><span id="all_categories_lbl"></span></a></p>
+			<p><a onclick="sessionStorage.setItem('site', 'http://www.shoppingspout.de');location.href='home.html';" class="close-panel side-panel-link-color"><i class="fa fa-list" aria-hidden="true" style='font-size:22px; padding-right:10px;color: #131313;'></i>Germany</a></p>
+			<p><a onclick="sessionStorage.setItem('site', 'http://www.shoppingspout.com.au');location.href='home.html';" class="close-panel side-panel-link-color"><i class="fa fa-list" aria-hidden="true" style='font-size:22px; padding-right:10px;color: #131313;'></i>Austraila</a></p>
+			<!--<p><a href="saved_coupons.html" class="close-panel side-panel-link-color"><i class="fa fa-star" aria-hidden="true" style='font-size:22px; padding-right:10px; color: #ffff00;'></i>Saved Coupons</a></p>
+			<p><a href="saved_coupons.html" class="close-panel side-panel-link-color"><i class="fa fa-sign-in" aria-hidden="true" style='font-size:22px; padding-right:10px;color: #131313;'></i>Login</a></p>
+			-->
+        </div>
+    </div>
+			
+    <!-- Views -->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                    <div class="center sliding"><img src="img/app-logo.png" width="180px"/></div>
+                    <div class="right">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+					
+                </div>
+				
+            </div>
+			
+
+			
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+			
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+					
+					<div class="subnavbar">
+					   <div class="buttons-row"><a href="home.html" class="button active" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px;'></i></a><a href="today_coupons.html" class="button" id="new_coupons_lbl"></a><a href="stores.html" class="button" id="top_stores_lbl"></a><a href="categories.html" class="button" id="categories_lbl"></a></div>
+					</div>
+				    <!-- Scrollable page content -->
+                    <div class="page-content">
+						
+						<div class="content-block">
+							<div class="list-block">
+							  <ul>
+								<li class="item-content">
+								  <div class="item-title label" id="search_lbl"></div>
+								  <div class="item-input">
+									<input type="text" placeholder="" id="autocomplete-dropdown-ajax"></div>
+								</li>
+							  </ul>
+							</div>
+                            
+                            <!-- Search List -->
+                            <div class="list-block list-block-search searchbar-found">
+                                <ul id="store_list_items">
+
+
+                                </ul>
+                            </div>
+                            <!-- Search List -->
+						</div>
+                        
+                        
+                        
+						<div class="content-block f-stores">
+							<div class="row no-margin" id="featured_stores_list">
+							<div class='col-50 half'>
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                <span class="sr-only" id="loading_lbl"></span>    
+                            </div>	
+							</div>
+						</div>
+						
+						
+						
+						<div class="content-block">
+							<h2 class="no-margin" id="featured_brands_lbl"></h2>
+							<div class="row" id="featured_brands_list">
+                                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+								<span class="sr-only" id="loading_lbl2"></span>        
+							</div>
+						</div>
+						
+                    </div>
+                </div>
+            </div>
+			
+			
+            <!-- Bottom Toolbar-->
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <!-- Toolbar links -->
+                    <a href='#' onclick='window.open("https://plus.google.com/107909707273040689996/about", "_system", "location=yes"); return false;' class="link"><i class="fa fa-google-plus-square" aria-hidden="true" style="font-size: 35px; color: #ea261b;"></i></a>
+					<a href='#' onclick='window.open("https://www.facebook.com/shoppingspoutde", "_system", "location=yes"); return false;' class="link"><i class="fa fa-facebook-square" aria-hidden="true" style="font-size: 35px; color: #094e98;"></i></a>
+					<a href='#' onclick='window.open("http://www.linkedin.com/company/shoppingspout", "_system", "location=yes"); return false;' class="link"><i class="fa fa-linkedin-square" aria-hidden="true" style="font-size: 35px;"></i></a>
+					<a href='#' onclick='window.open("https://twitter.com/ShoppingSpoutDE", "_system", "location=yes"); return false;' class="link"><i class="fa fa-twitter-square" aria-hidden="true" style="font-size: 35px; color: #6cb3ff;"></i></a>
+					<a href='#' onclick='window.open("https://www.pinterest.com/shopingspout/german/", "_system", "location=yes"); return false;' class="link"><i class="fa fa-pinterest-square" aria-hidden="true" style="font-size: 35px; color: #ea261b;"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.js"></script>
+	
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>

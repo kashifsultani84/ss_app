@@ -6,7 +6,7 @@
         <div class="left">
             <a href="#" class="back link">
                 <i class="icon icon-back"></i>
-                <span>Back</span>
+                <span id="back_lbl"></span>
             </a>
         </div>
         <div class="center sliding" id="heading_main"><img src="img/app-logo.png" width="180px"/></div>
@@ -19,7 +19,7 @@
 <div class="pages">
     <div data-page="today_coupons" class="page">
 		<div class="subnavbar">
-			<div class="buttons-row"><a href="index.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="today_coupons.html" class="button active">New Coupons</a><a href="stores.html" class="button">Top Stores</a><a href="categories.html" class="button">Categories</a></div>
+			<div class="buttons-row"><a href="home.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="today_coupons.html" class="button active" id="new_coupons_lbl_td"></a><a href="stores.html" class="button" id="top_stores_lbl_td"></a><a href="categories.html" class="button" id="categories_lbl_td"></a></div>
 		</div>
         <div class="page-content" style="padding-top: 55px;">
 			<div class="content-block">
@@ -27,7 +27,7 @@
 				<div class="row">
 					<div class="col-100">
 						<div class="col-80 store-name">
-							<h4 id="category_heading">New Coupons</h4>
+							<h4 id="category_heading" id="new_coupons_heading_lbl"></h4>
 						</div>
 						<div class="col-20 store-logo" id="category_logo_div">
 							
@@ -37,7 +37,7 @@
 				<!-- end row -->
 				<div class="row stores-content" id="category_coupons_list1">
 				    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only" id="loading_lbl_td">Bezig met laden...</span>
 				</div>	
             </div>
         </div>

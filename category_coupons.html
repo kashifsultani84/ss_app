@@ -6,7 +6,7 @@
         <div class="left">
             <a href="#" class="back link">
                 <i class="icon icon-back"></i>
-                <span>Back</span>
+                <span id="back_lbl_cc"></span>
             </a>
         </div>
         <div class="center sliding" id="category_heading_main"><img src="img/app-logo.png" width="180px"/></div>
@@ -19,16 +19,16 @@
 <div class="pages">
     <div data-page="category_coupons" class="page">
 		<div class="subnavbar">
-			<div class="buttons-row"><a href="index.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="today_coupons.html" class="button">New Coupons</a><a href="stores.html" class="button">Top Stores</a><a href="categories.html" class="button">Categories</a></div>
+			<div class="buttons-row"><a href="home.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="today_coupons.html" class="button" id="new_coupons_lbl_cc"></a><a href="stores.html" class="button" id="top_stores_lbl_cc"></a><a href="categories.html" class="button" id="categories_lbl_cc"></a></div>
 		</div>
         <div class="page-content" style="padding-top: 55px;">
 			<div class="content-block">
 				<div class="list-block">
 				  <ul>
 					<li class="item-content">
-					  <div class="item-title label">Search</div>
+					  <div class="item-title label" id="search_lbl_cc"></div>
 					  <div class="item-input">
-						<input type="text" placeholder="Store/Brand Name" id="autocomplete-dropdown-ajax"></div>
+						<input type="text" placeholder="" id="autocomplete-dropdown-ajax"></div>
 					</li>
 				  </ul>
 				</div>
@@ -57,7 +57,7 @@
 				<!-- end row -->
 				<div class="row stores-content" id="category_coupons_list1">
                     <!-- <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> -->
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only">Bezig met laden...</span>
 				</div>	
             </div>
         </div>

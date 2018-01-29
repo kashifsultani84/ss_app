@@ -6,7 +6,7 @@
         <div class="left">
             <a href="#" class="back link">
                 <i class="icon icon-back"></i>
-                <span>Back</span>
+                <span id="back_lbl_ct"></span>
             </a>
         </div>
         <div class="center sliding"><img src="img/app-logo.png" width="180px"/></div>
@@ -19,19 +19,19 @@
 <div class="pages">
     <div data-page="categories" class="page">
 		<div class="subnavbar">
-		   <div class="buttons-row"><a href="index.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="today_coupons.html" class="button">New Coupons</a><a href="stores.html" class="button">Top Stores</a><a href="categories.html" class="button active">Categories</a></div>
+		   <div class="buttons-row"><a href="home.html" class="button" style="width: 50%;"><i class="fa fa-home" aria-hidden="true" style='font-size:30px; color:#007aff;'></i></a><a href="today_coupons.html" class="button" id="new_coupons_lbl_ct"></a><a href="stores.html" class="button" id="top_stores_lbl_ct"></a><a href="categories.html" class="button active" id="categories_lbl_ct"></a></div>
 		</div>
         <div class="page-content" style="padding-top: 55px;">
 			<div class="content-block">
 				<form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
                      <div class="searchbar-input">
-                        <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+                        <input type="search" placeholder="" id="search_placeholder_lbl_ct"><a href="#" class="searchbar-clear"></a>
                      </div>
-                     <a href="#" class="searchbar-cancel">Cancel</a>
+                     <a href="#" class="searchbar-cancel" id="search_lbl_ct"></a>
 				</form>
 				
 				<div class="content-block searchbar-not-found">
-                     <div class="content-block-inner">Category Not Found...</div>
+                     <div class="content-block-inner" id="category_not_found_lbl_ct"></div>
                 </div>
 				<div class="list-block list-block-search searchbar-found">
 					<ul id="category_list">
@@ -39,7 +39,7 @@
 						  <div class="item-inner">
 							 <div class="item-title">
 								<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-								<span class="sr-only">Loading...</span>
+								<span class="sr-only" id="loading_lbl_ct"></span>
 							 </div>
 						  </div>
 					   </li>
